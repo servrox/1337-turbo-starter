@@ -13,9 +13,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
+    "build": "bunx @tailwindcss/cli -i ./src/styles.css -o ./dist/index.css",
     "check-types": "tsc --noEmit",
-    "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
+    "dev": "bunx @tailwindcss/cli -i ./src/styles.css -o ./dist/index.css --watch",
     "lint": "eslint src --max-warnings 0"
   },
   "peerDependencies": {
@@ -25,6 +25,7 @@
     "@repo/eslint-config": "*",
     "@repo/tailwind-config": "*",
     "@repo/typescript-config": "*",
+    "@tailwindcss/cli": "^4.1.0",
     "@tailwindcss/postcss": "^4.1.0",
     "@types/react": "^19.0.10",
     "eslint": "^9.22.0",
