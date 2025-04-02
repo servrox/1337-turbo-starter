@@ -1,5 +1,5 @@
 {
-  "name": "turbo-bun-tailwind-starter",
+  "name": "turbo-bun-tailwind-aptos-starter",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -14,11 +14,15 @@
     "turbo": "^2.4.4"
   },
   "engines": {
-    "node": ">=18"
+    "bun": ">=1.2.5"
   },
   "packageManager": "bun@1.2.5",
   "workspaces": [
     "apps/*",
     "packages/*"
+  ],
+  "trustedDependencies": [
+    "@parcel/watcher",
+    "protobufjs"
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "name": "@repo/contract",
+  "private": true,
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "scripts": {
+    "move:test": "bun ./scripts/move/test",
+    "move:compile": "bun ./scripts/move/compile",
+    "move:publish": "bun ./scripts/move/publish && bun ./scripts/move/get_abi",
+    "move:upgrade": "bun ./scripts/move/upgrade && bun ./scripts/move/get_abi"
+  },
+  "devDependencies": {
+    "@aptos-labs/ts-sdk": "^1.30.0",
+    "tree-kill": "1.2.2",
+    "dotenv": "16.3.1"
+  }
+}

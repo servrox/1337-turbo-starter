@@ -1,58 +1,144 @@
-# Turborepo Tailwind CSS starter
+# 1337 Turbo Starter – Modern Web3 Development Stack
 
-This Turborepo starter is maintained by the Turborepo core team.
+<div align="center">
+  <img src="https://img.shields.io/npm/v/bun?color=000000&style=for-the-badge&label=Bun&logo=bun" alt="Bun" />
+  <img src="https://img.shields.io/npm/v/turbo?color=000000&style=for-the-badge&label=Turbo&logo=vercel" alt="Turbo" />
+  <img src="https://img.shields.io/npm/v/next?color=000000&style=for-the-badge&label=Next.js&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/npm/v/tailwindcss?color=000000&style=for-the-badge&label=Tailwind&logo=tailwindcss" alt="Tailwind" />
+  <br />
+  <img src="https://img.shields.io/badge/Aptos-000000?style=for-the-badge&logo=aptos" alt="Aptos" />
+  <img src="https://img.shields.io/badge/Move-000000?style=for-the-badge&logo=move" alt="Move" />
+</div>
 
-## Using this example
+---
 
-Run the following command:
+## 🚀 Overview
 
-```sh
-npx create-turbo@latest -e with-tailwind
+**1337 Turbo Starter** is a modern full-stack Web3 monorepo powered by [Turborepo](https://turbo.build/), integrating the official [Aptos DApp boilerplate](https://learn.aptoslabs.com/en/dapp-templates/boilerplate-template).
+
+It includes:
+
+- ⚡️ Bun for ultra-fast performance  
+- 🎨 Tailwind CSS + shadcn/ui for polished UIs  
+- 🔗 Aptos & Move for Web3  
+- 🧱 Shared configs & UI across apps  
+- 🦪 Developer-first tooling and monorepo structure  
+
+---
+
+## 🧰 Tech Stack
+
+- **Bun** – Ultra-fast JS runtime & package manager  
+- **Turborepo** – High-performance monorepo build system  
+- **Next.js** – React framework for production apps  
+- **Tailwind CSS** – Utility-first CSS framework  
+- **Aptos** – Layer 1 blockchain platform  
+- **Move** – Safe, resource-oriented smart contract language  
+
+---
+
+## 📁 Project Structure
+
+```txt
+.
+├── apps/
+│   ├── docs/             # Documentation site (uses shared Tailwind + UI)
+│   ├── web/              # Main web app (uses shared Tailwind + UI)
+│   └── my-aptos-dapp/    # Aptos DApp boilerplate
+├── packages/
+│   ├── contract/         # Move smart contracts
+│   ├── ui/               # Shared UI components (used in docs & web)
+│   ├── tailwind-config/  # Shared Tailwind config
+│   ├── typescript-config/ # Shared TypeScript settings
+│   └── eslint-config/    # Shared ESLint rules
+└── .vscode/              # VS Code configuration
 ```
 
-## What's inside?
+📦 **Shared packages** like `ui` and `tailwind-config` ensure consistent styling and components across `apps/docs` and `apps/web`.
 
-This Turborepo includes the following packages/apps:
+---
 
-### Apps and Packages
+## ⚙️ Getting Started
 
-- `docs`: a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `web`: another [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `ui`: a stub React component library with [Tailwind CSS](https://tailwindcss.com/) shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+### Prerequisites
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+- [Bun](https://bun.sh) ≥ 1.2.5  
+- [VS Code](https://code.visualstudio.com) (recommended)  
 
-### Building packages/ui
+### 🧪 Installation
 
-This example is set up to produce compiled styles for `ui` components into the `dist` directory. The component `.tsx` files are consumed by the Next.js apps directly using `transpilePackages` in `next.config.ts`. This was chosen for several reasons:
-
-- Make sharing one `tailwind.config.ts` to apps and packages as easy as possible.
-- Make package compilation simple by only depending on the Next.js Compiler and `tailwindcss`.
-- Ensure Tailwind classes do not overwrite each other. The `ui` package uses a `ui-` prefix for it's classes.
-- Maintain clear package export boundaries.
-
-Another option is to consume `packages/ui` directly from source without building. If using this option, you will need to update the `tailwind.config.ts` in your apps to be aware of your package locations, so it can find all usages of the `tailwindcss` class names for CSS compilation.
-
-For example, in [tailwind.config.ts](packages/tailwind-config/tailwind.config.ts):
-
-```js
-  content: [
-    // app content
-    `src/**/*.{js,ts,jsx,tsx}`,
-    // include packages if not transpiling
-    "../../packages/ui/*.{js,ts,jsx,tsx}",
-  ],
+```bash
+git clone git@github.com:servrox/1337-turbo-starter.git
+cd 1337-turbo-starter
+bun install
 ```
 
-If you choose this strategy, you can remove the `tailwindcss` and `autoprefixer` dependencies from the `ui` package.
+### 🔐 Environment Setup
 
-### Utilities
+**For the Aptos DApp (`apps/my-aptos-dapp/.env`):**
 
-This Turborepo has some additional tools already setup for you:
+```env
+# Get your API key from https://build.aptoslabs.com
+NEXT_PUBLIC_APTOS_API_KEY=your_api_key_here
+```
 
-- [Tailwind CSS](https://tailwindcss.com/) for styles
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+**For the Move contract (`packages/contract/.env`):**
+
+```env
+NEXT_MODULE_PUBLISHER_ACCOUNT_PRIVATE_KEY=your_private_key_here
+NEXT_PUBLIC_MODULE_ADDRESS=your_module_address_here
+```
+
+📜 `NEXT_MODULE_PUBLISHER_ACCOUNT_ADDRESS` will be set automatically when you run:
+
+```bash
+bun run move:publish
+```
+
+### ▶️ Start Dev Server
+
+```bash
+bun run dev
+```
+
+---
+
+## 📜 Scripts
+
+| Script                   | Description                                 |
+|--------------------------|---------------------------------------------|
+| `bun run build`          | Build all apps and packages                 |
+| `bun run dev`            | Start development servers (via Turborepo)  |
+| `bun run lint`           | Run ESLint across the repo                 |
+| `bun run check-types`    | Type-check all packages and apps           |
+| `bun run format`         | Format codebase with Prettier              |
+| `bun run move:publish`   | Deploy Move module and set publisher address |
+
+---
+
+## ✨ Features
+
+- ⚡️ **Fast Dev Workflow** with Bun and Turborepo  
+- 🎨 **Modern UI** with Tailwind CSS and Next.js  
+- 🔒 **Web3-Ready** via Aptos + Move  
+- 📦 **Shared UI Components** via `@repo/ui`  
+- 🧠 **Developer Experience**: Prettier, ESLint, TypeScript, and VS Code settings out-of-the-box  
+- 🔀 **Reusable Configs**: Tailwind, TS, and ESLint configs shared across packages  
+- 📱 **Responsive Design** with Tailwind utilities  
+- 🌐 **Docs + Web Consistency** via shared `ui` and `tailwind-config`  
+
+---
+
+## 🗭 Development Guidelines
+
+### Required Environment Variables
+
+| Location                    | Variable                                       | Description                                               |
+|----------------------------|------------------------------------------------|-----------------------------------------------------------|
+| `apps/my-aptos-dapp/.env`  | `NEXT_PUBLIC_APTOS_API_KEY`                   | Your Aptos API key from [Aptos Labs](https://build.aptoslabs.com) |
+| `packages/contract/.env`   | `NEXT_MODULE_PUBLISHER_ACCOUNT_PRIVATE_KEY`   | Private key used for module publishing                   |
+| `packages/contract/.env`   | `NEXT_PUBLIC_MODULE_ADDRESS`                  | Address where the module is published                    |
+| `packages/contract/.env`   | `NEXT_MODULE_PUBLISHER_ACCOUNT_ADDRESS`       | **Auto-filled** by `move:publish` script                 |
+
+💡 See the `.env.example` files in each package for more details.
+
