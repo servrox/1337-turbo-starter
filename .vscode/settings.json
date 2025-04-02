@@ -1,0 +1,54 @@
+{
+  // 💾 AUTO-SAVE
+  "files.autoSave": "onFocusChange", // Auto-save when the editor loses focus
+
+  // 🧠 TYPESCRIPT SETUP
+  "typescript.tsdk": "node_modules/typescript/lib", // Use workspace TypeScript version
+  "typescript.enablePromptUseWorkspaceTsdk": true, // Don't prompt to switch TSDK
+  "typescript.preferences.importModuleSpecifier": "non-relative", // Use paths over relative imports
+
+  // 🎨 CODE FORMATTING (Prettier)
+  "editor.formatOnSave": true, // Format on save
+  "editor.formatOnSaveMode": "modifications", // Only format modified lines
+  "editor.formatOnPaste": true, // Format on paste
+  "editor.formatOnType": true, // Format while typing (semi-limited support)
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Use Prettier
+  "prettier.requireConfig": true, // Only format when Prettier config is present
+
+  // 🛠️ CODE ACTIONS (Fix + Organize)
+  "editor.codeActions.triggerOnFocusChange": true, // Trigger on focus change
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+
+  // 🔍 ESLINT LINTING
+  "eslint.enable": true, // Enable ESLint
+  "eslint.packageManager": "bun", // Use Bun as package manager
+  "eslint.run": "onType", // Run on each keystroke
+  "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact"], // File types to lint
+  "eslint.workingDirectories": [{ "mode": "auto" }], // Detect monorepo workspace roots
+
+  // 🌈 TAILWIND INTELLISENSE
+  "tailwindCSS.includeLanguages": {
+    "typescript": "html",
+    "typescriptreact": "html"
+  },
+  "tailwindCSS.experimental.classRegex": ["clsx\\(([^)]*)\\)", "cn\\(([^)]*)\\)"], // Support Tailwind in utility functions
+
+  // 🧹 FILE EXCLUSIONS
+  "files.exclude": {
+    "**/dist": true,
+    "**/.next": true,
+    "**/node_modules": true
+  },
+  "search.exclude": {
+    "**/dist": true,
+    "**/.next": true,
+    "**/node_modules": true
+  }, // Hide from file tree & search
+
+  // 🐙 GIT
+  "git.ignoreLimitWarning": true, // Ignore file count warning
+  "git.inputValidationSubjectLength": 100 // Allow longer commit titles
+}

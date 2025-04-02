@@ -1,5 +1,5 @@
 {
-  "name": "with-tailwind",
+  "name": "turbo-bun-tailwind-starter",
   "private": true,
   "scripts": {
     "build": "turbo run build",

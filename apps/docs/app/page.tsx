@@ -1,15 +1,7 @@
 import Image from "next/image";
 import { Card } from "@repo/ui/card";
 
-function Gradient({
-  conic,
-  className,
-  small,
-}: {
-  small?: boolean;
-  conic?: boolean;
-  className?: string;
-}) {
+function Gradient({ conic, className, small }: { small?: boolean; conic?: boolean; className?: string }) {
   return (
     <span
       className={`absolute mix-blend-normal will-change-[filter] rounded-[100%] ${
@@ -38,8 +30,7 @@ const LINKS = [
   {
     title: "Deploy",
     href: "https://vercel.com/new",
-    description:
-      "Instantly deploy your Turborepo to a shareable URL with Vercel.",
+    description: "Instantly deploy your Turborepo to a shareable URL with Vercel.",
   },
 ];
 
@@ -56,17 +47,8 @@ export default function Page() {
             className="flex gap-2 p-8 pointer-events-none place-items-center lg:pointer-events-auto lg:p-0"
             href="https://vercel.com?utm_source=create-turbo&utm_medium=basic&utm_campaign=create-turbo"
             rel="noopener noreferrer"
-            target="_blank"
-          >
-            By{" "}
-            <Image
-              alt="Vercel Logo"
-              className="invert"
-              height={24}
-              priority
-              src="/vercel.svg"
-              width={100}
-            />
+            target="_blank">
+            By <Image alt="Vercel Logo" className="invert" height={24} priority src="/vercel.svg" width={100} />
           </a>
         </div>
       </div>
@@ -75,42 +57,23 @@ export default function Page() {
         <div className="font-sans w-auto pb-16 pt-[48px] md:pb-24 lg:pb-32 md:pt-16 lg:pt-20 flex justify-between gap-8 items-center flex-col relative z-0">
           <div className="z-50 flex items-center justify-center w-full">
             <div className="absolute min-w-[614px] min-h-[614px]">
-              <Image
-                alt="Turborepo"
-                height={614}
-                src="circles.svg"
-                width={614}
-              />
+              <Image alt="Turborepo" height={614} src="circles.svg" width={614} />
             </div>
             <div className="absolute z-50 flex items-center justify-center w-64 h-64">
-              <Gradient
-                className="opacity-90 w-[120px] h-[120px]"
-                conic
-                small
-              />
+              <Gradient className="opacity-90 w-[120px] h-[120px]" conic small />
             </div>
 
             <div className="w-[120px] h-[120px] z-50">
-              <Image
-                alt=""
-                height={120}
-                priority
-                src="turborepo.svg"
-                width={120}
-              />
+              <Image alt="" height={120} priority src="turborepo.svg" width={120} />
             </div>
           </div>
-          <Gradient
-            className="top-[-500px] opacity-[0.15] w-[1000px] h-[1000px]"
-            conic
-          />
+          <Gradient className="top-[-500px] opacity-[0.15] w-[1000px] h-[1000px]" conic />
           <div className="z-50 flex flex-col items-center justify-center gap-5 px-6 text-center lg:gap-6">
             <svg
               className="w-[160px] md:w-[200px] fill-white"
               viewBox="0 0 506 50"
               width={200}
-              xmlns="http://www.w3.org/2000/svg"
-            >
+              xmlns="http://www.w3.org/2000/svg">
               <title>Turborepo logo</title>
               <path d="M53.7187 12.0038V1.05332H0.945312V12.0038H20.8673V48.4175H33.7968V12.0038H53.7187Z" />
               <path d="M83.5362 49.1431C99.764 49.1431 108.67 40.8972 108.67 27.3081V1.05332H95.7401V26.0547C95.7401 33.6409 91.7821 37.9287 83.5362 37.9287C75.2904 37.9287 71.3324 33.6409 71.3324 26.0547V1.05332H58.4029V27.3081C58.4029 40.8972 67.3084 49.1431 83.5362 49.1431Z" />

@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode", // Prettier formatter
+    "dbaeumer.vscode-eslint", // ESLint integration
+    "bradlc.vscode-tailwindcss", // Tailwind CSS IntelliSense
+    "austenc.tailwind-docs", // Tailwind CSS Docs
+    "bunshao.bun-vscode", // Bun language support (if available)
+    "orta.vscode-jest", // Optional: for testing if you use Jest
+    "yoavbls.pretty-ts-errors", // Prettier TypeScript error messages
+    "GitHub.vscode-pull-request-github", // GitHub PRs in VSCode
+    "eamodio.gitlens" // Git blame/history
+  ]
+}
