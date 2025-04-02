@@ -1,4 +1,5 @@
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
+import Image from "next/image";
 // Internal components
 import { LabelValueGrid } from "@/components/LabelValueGrid";
 
@@ -11,7 +12,17 @@ export function WalletDetails() {
         items={[
           {
             label: "Icon",
-            value: wallet?.icon ? <img src={wallet.icon} alt={wallet.name} width={24} height={24} /> : "Not Present",
+            value: wallet?.icon ? (
+              <Image
+                src={wallet.icon}
+                alt={wallet.name}
+                width={24}
+                height={24}
+                unoptimized={true} // Since this is an external URL that might not be in our domain
+              />
+            ) : (
+              "Not Present"
+            ),
           },
           {
             label: "Name",

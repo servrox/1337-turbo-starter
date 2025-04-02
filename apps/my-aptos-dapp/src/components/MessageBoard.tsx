@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useWalletClient } from "@thalalabs/surf/hooks";
+import { useEffect, useState } from "react";
 // Internal components
-import { toast } from "@/components/ui/use-toast";
-import { aptosClient } from "@/utils/aptosClient";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { getMessageContent } from "@/view-functions/getMessageContent";
+import { toast } from "@/components/ui/use-toast";
+import { aptosClient } from "@/utils/aptosClient";
 import { MESSAGE_BOARD_ABI } from "@/utils/message_board_abi";
+import { getMessageContent } from "@/view-functions/getMessageContent";
 
 export function MessageBoard() {
   const { client } = useWalletClient();
@@ -29,11 +29,11 @@ export function MessageBoard() {
         return {
           content,
         };
-      } catch (error: any) {
+      } catch (error: unknown) {
         toast({
           variant: "destructive",
           title: "Error",
-          description: error,
+          description: error instanceof Error ? error.message : String(error),
         });
         return {
           content: "",
@@ -79,8 +79,7 @@ export function MessageBoard() {
       New message <Input disabled={!client} placeholder="yoho" onChange={(e) => setNewMessageContent(e.target.value)} />
       <Button
         disabled={!client || !newMessageContent || newMessageContent.length === 0 || newMessageContent.length > 100}
-        onClick={onClickButton}
-      >
+        onClick={onClickButton}>
         Write
       </Button>
     </div>

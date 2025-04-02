@@ -1,16 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useWalletClient } from "@thalalabs/surf/hooks";
+import { useEffect, useState } from "react";
 // Internal components
-import { toast } from "@/components/ui/use-toast";
-import { aptosClient } from "@/utils/aptosClient";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { getAccountAPTBalance } from "@/view-functions/getAccountBalance";
+import { toast } from "@/components/ui/use-toast";
+import { aptosClient } from "@/utils/aptosClient";
 import { COIN_ABI } from "@/utils/coin_abi";
+import { getAccountAPTBalance } from "@/view-functions/getAccountBalance";
 
 export function TransferAPT() {
   const { account } = useWallet();
@@ -36,11 +36,11 @@ export function TransferAPT() {
         return {
           balance,
         };
-      } catch (error: any) {
+      } catch (error: unknown) {
         toast({
           variant: "destructive",
           title: "Error",
-          description: error,
+          description: error instanceof Error ? error.message : String(error),
         });
         return {
           balance: 0,
@@ -88,8 +88,7 @@ export function TransferAPT() {
       <Input disabled={!account} placeholder="100" onChange={(e) => setTransferAmount(parseFloat(e.target.value))} />
       <Button
         disabled={!account || !recipient || !transferAmount || transferAmount > aptBalance || transferAmount <= 0}
-        onClick={onClickButton}
-      >
+        onClick={onClickButton}>
         Transfer
       </Button>
     </div>

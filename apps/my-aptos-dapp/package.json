@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start",
     "deploy": "vercel",
-    "lint": "next lint --report-unused-disable-directives --max-warnings 0",
+    "lint": "next lint --max-warnings 0",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
