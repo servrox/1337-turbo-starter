@@ -16,8 +16,8 @@ async function getAbi() {
       .then((response) => {
         const abi = response.abi;
         const abiString = `export const ${module.name.toUpperCase()}_ABI = ${JSON.stringify(abi)} as const;`;
-        fs.writeFileSync(`../../apps/my-aptos-dapp/src/utils/${module.name}_abi.ts`, abiString);
-        console.log(`${module.name} ABI saved to apps/my-aptos-dapp/src/utils/${module.name}_abi.ts`);
+        fs.writeFileSync(`../../apps/aptos-boilerplate/lib/utils/${module.name}_abi.ts`, abiString);
+        console.log(`${module.name} ABI saved to apps/aptos-boilerplate/lib/utils/${module.name}_abi.ts`);
       })
       .catch((error) => {
         console.error("Error fetching ABI:", error);

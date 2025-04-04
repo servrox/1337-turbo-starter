@@ -48,7 +48,7 @@ async function publish() {
       return response;
     })
     .then((response) => {
-      const filePath = "../../apps/my-aptos-dapp/.env";
+      const filePath = "../../apps/aptos-boilerplate/.env";
       let envContent = "";
 
       // Check .env file exists and read it
@@ -71,7 +71,7 @@ async function publish() {
 
       // Write the updated content back to the .env file
       fs.writeFileSync(filePath, envContent, "utf8");
-      console.log("NEXT_PUBLIC_MODULE_ADDRESS updated in apps/my-aptos-dapp/.env file");
+      console.log("NEXT_PUBLIC_MODULE_ADDRESS updated in apps/aptos-boilerplate/.env file");
     });
 }
 publish();

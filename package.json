@@ -3,7 +3,11 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "build:aptos-boilerplate": "turbo run build --filter=aptos-boilerplate",
+    "build:landing-page": "turbo run build --filter=landing-page",
     "dev": "turbo run dev",
+    "dev:aptos-boilerplate": "turbo run dev --filter=aptos-boilerplate",
+    "dev:landing-page": "turbo run dev --filter=landing-page",
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
@@ -11,7 +15,7 @@
   "devDependencies": {
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "turbo": "^2.4.4"
+    "turbo": "^2.5.0"
   },
   "engines": {
     "bun": ">=1.2.5"
