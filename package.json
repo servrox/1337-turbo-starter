@@ -1,6 +1,7 @@
 {
   "name": "turbo-bun-tailwind-aptos-starter",
   "private": true,
+  "author": "servrox",
   "scripts": {
     "build": "turbo run build",
     "build:aptos-boilerplate": "turbo run build --filter=aptos-boilerplate",

@@ -14,18 +14,18 @@
   "dependencies": {
     "@repo/ui": "*",
     "lucide-react": "^0.487.0",
-    "next": "^15.2.1",
-    "next-themes": "^0.4.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "next": "^15.2.4",
+    "next-themes": "^0.4.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
-    "@types/node": "^22.13.9",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "eslint": "^9.22.0",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
+    "eslint": "^9.24.0",
     "typescript": "5.8.2"
   }
 }
