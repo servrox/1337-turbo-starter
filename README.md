@@ -16,11 +16,11 @@
 
 **1337 Turbo Starter** is a modern full-stack Web3 monorepo powered by [Turborepo](https://turbo.build/), integrating the official [Aptos DApp boilerplate](https://learn.aptoslabs.com/en/dapp-templates/boilerplate-template).
 
-It includes:
+It runs:
 
 - ⚡️ Bun for ultra-fast performance  
 - 🎨 Tailwind CSS + shadcn/ui for polished UIs  
-- 🔗 Aptos & Move for Web3  
+- 🔗 Aptos & Move for next level Web3  
 - 🧱 Shared configs & UI across apps  
 - 🦪 Developer-first tooling and monorepo structure  
 
@@ -42,19 +42,17 @@ It includes:
 ```txt
 .
 ├── apps/
-│   ├── docs/             # Documentation site (uses shared Tailwind + UI)
-│   ├── web/              # Main web app (uses shared Tailwind + UI)
-│   └── my-aptos-dapp/    # Aptos DApp boilerplate
+│   ├── aptos-boilerplate/  # Aptos DApp implementation
+│   └── landing-page/       # Landing page application
 ├── packages/
-│   ├── contract/         # Move smart contracts
-│   ├── ui/               # Shared UI components (used in docs & web)
-│   ├── tailwind-config/  # Shared Tailwind config
+│   ├── contract/          # Move smart contracts
+│   ├── ui/                # Shared UI components
 │   ├── typescript-config/ # Shared TypeScript settings
-│   └── eslint-config/    # Shared ESLint rules
-└── .vscode/              # VS Code configuration
+│   └── eslint-config/     # Shared ESLint rules
+└── .vscode/               # VS Code configuration
 ```
 
-📦 **Shared packages** like `ui` and `tailwind-config` ensure consistent styling and components across `apps/docs` and `apps/web`.
+📦 **Shared packages** ensure consistent styling, types, and components across all applications.
 
 ---
 
@@ -75,7 +73,7 @@ bun install
 
 ### 🔐 Environment Setup
 
-**For the Aptos DApp (`apps/my-aptos-dapp/.env`):**
+**For the Aptos DApp (`apps/aptos-boilerplate/.env`):**
 
 ```env
 # Get your API key from https://build.aptoslabs.com
@@ -105,27 +103,29 @@ bun run dev
 
 ## 📜 Scripts
 
-| Script                   | Description                                 |
-|--------------------------|---------------------------------------------|
-| `bun run build`          | Build all apps and packages                 |
-| `bun run dev`            | Start development servers (via Turborepo)  |
-| `bun run lint`           | Run ESLint across the repo                 |
-| `bun run check-types`    | Type-check all packages and apps           |
-| `bun run format`         | Format codebase with Prettier              |
-| `bun run move:publish`   | Deploy Move module and set publisher address |
+| Script                          | Description                                    |
+|--------------------------------|------------------------------------------------|
+| `bun run build`                | Build all apps and packages                    |
+| `bun run build:aptos-boilerplate` | Build only the Aptos boilerplate app       |
+| `bun run build:landing-page`   | Build only the landing page                    |
+| `bun run dev`                  | Start all development servers                  |
+| `bun run dev:aptos-boilerplate`| Start Aptos boilerplate development server    |
+| `bun run dev:landing-page`     | Start landing page development server         |
+| `bun run lint`                 | Run ESLint across the repo                    |
+| `bun run check-types`          | Type-check all packages and apps              |
+| `bun run format`               | Format codebase with Prettier                 |
 
 ---
 
-## ✨ Features
+## ✨ Bonus
 
 - ⚡️ **Fast Dev Workflow** with Bun and Turborepo  
-- 🎨 **Modern UI** with Tailwind CSS and Next.js  
-- 🔒 **Web3-Ready** via Aptos + Move  
+- 🎨 **4-way theme switcher** select between banana, dark, light and system
 - 📦 **Shared UI Components** via `@repo/ui`  
 - 🧠 **Developer Experience**: Prettier, ESLint, TypeScript, and VS Code settings out-of-the-box  
-- 🔀 **Reusable Configs**: Tailwind, TS, and ESLint configs shared across packages  
-- 📱 **Responsive Design** with Tailwind utilities  
-- 🌐 **Docs + Web Consistency** via shared `ui` and `tailwind-config`  
+- 💄 **Tailwind v4**: full tailwind v4 style with css only configs  
+- 📱 **shadcn/ui monorepo** using shadcn/ui components and CLI in a [monorepo](https://ui.shadcn.com/docs/monorepo#requirements)  
+- 🌐 **create-aptos-dapp** matched Aptos Move integration with the official AptosLabs boilerplate
 
 ---
 
@@ -135,10 +135,14 @@ bun run dev
 
 | Location                    | Variable                                       | Description                                               |
 |----------------------------|------------------------------------------------|-----------------------------------------------------------|
-| `apps/my-aptos-dapp/.env`  | `NEXT_PUBLIC_APTOS_API_KEY`                   | Your Aptos API key from [Aptos Labs](https://build.aptoslabs.com) |
+| `apps/aptos-boilerplate/.env`  | `NEXT_PUBLIC_APP_NETWORK`                   | The network your module is deployed to |
+| `apps/aptos-boilerplate/.env`   | `NEXT_PUBLIC_MODULE_ADDRESS`                  | **Auto-filled** by `move:publish` script                 |
+| `apps/aptos-boilerplate/.env`  | `NEXT_PUBLIC_APTOS_API_KEY`                   | Your Aptos API key from [Aptos Labs](https://build.aptoslabs.com) |
+| `packages/contract/.env`  | `NEXT_PUBLIC_APP_NETWORK`                   | The network you want to deploy your module |
+| `packages/contract/.env`   | `NEXT_MODULE_PUBLISHER_ACCOUNT_ADDRESS`       | Account address used for module publishing                 |
+| `packages/contract/.env`   | `NEXT_PUBLIC_MODULE_ADDRESS`                  | **Auto-filled** by `move:publish` script                 |
 | `packages/contract/.env`   | `NEXT_MODULE_PUBLISHER_ACCOUNT_PRIVATE_KEY`   | Private key used for module publishing                   |
-| `packages/contract/.env`   | `NEXT_PUBLIC_MODULE_ADDRESS`                  | Address where the module is published                    |
-| `packages/contract/.env`   | `NEXT_MODULE_PUBLISHER_ACCOUNT_ADDRESS`       | **Auto-filled** by `move:publish` script                 |
 
 💡 See the `.env.example` files in each package for more details.
 
+💡 If you are using the Testnet network, you will need to fund a module publisher account manually through the faucet web view on https://aptos.dev/en/network/faucet and then fill out the `NEXT_MODULE_PUBLISHER_ACCOUNT_PRIVATE_KEY` and `NEXT_MODULE_PUBLISHER_ACCOUNT_ADDRESS` in your project .env file.
