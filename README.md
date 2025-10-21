@@ -60,7 +60,7 @@ It runs:
 
 ### Prerequisites
 
-- [Bun](https://bun.sh) ≥ 1.2.5  
+- [Bun](https://bun.sh) ≥ 1.3.0  
 - [VS Code](https://code.visualstudio.com) (recommended)  
 
 ### 🧪 Installation
@@ -111,7 +111,8 @@ bun run dev
 | `bun run dev`                  | Start all development servers                  |
 | `bun run dev:aptos-boilerplate`| Start Aptos boilerplate development server    |
 | `bun run dev:landing-page`     | Start landing page development server         |
-| `bun run lint`                 | Run ESLint across the repo                    |
+| `bun run lint`                 | Run ESLint (flat config) across the repo      |
+| `bun run lint -- --fix`        | Auto-fix lint issues where possible           |
 | `bun run check-types`          | Type-check all packages and apps              |
 | `bun run format`               | Format codebase with Prettier                 |
 
@@ -122,8 +123,8 @@ bun run dev
 - ⚡️ **Fast Dev Workflow** with Bun and Turborepo  
 - 🎨 **4-way theme switcher** select between banana, dark, light and system
 - 📦 **Shared UI Components** via `@repo/ui`  
-- 🧠 **Developer Experience**: Prettier, ESLint, TypeScript, and VS Code settings out-of-the-box  
-- 💄 **Tailwind v4**: full tailwind v4 style with css only configs  
+- 🧠 **Developer Experience**: Prettier, ESLint (flat config), TypeScript, and VS Code settings out-of-the-box  
+- 💄 **Tailwind v4**: native Tailwind CSS v4 pipeline with PostCSS  
 - 📱 **shadcn/ui monorepo** using shadcn/ui components and CLI in a [monorepo](https://ui.shadcn.com/docs/monorepo#requirements)  
 - 🌐 **create-aptos-dapp** matched Aptos Move integration with the official AptosLabs boilerplate
 
@@ -146,3 +147,7 @@ bun run dev
 💡 See the `.env.example` files in each package for more details.
 
 💡 If you are using the Testnet network, you will need to fund a module publisher account manually through the faucet web view on https://aptos.dev/en/network/faucet and then fill out the `NEXT_MODULE_PUBLISHER_ACCOUNT_PRIVATE_KEY` and `NEXT_MODULE_PUBLISHER_ACCOUNT_ADDRESS` in your project .env file.
+
+### Linting & Formatting
+
+Always run `bun run lint` (optionally `bun run lint -- --fix`) and `bun run check-types` before opening a pull request. The repository relies on the shared flat config in `packages/eslint-config`; resolve errors instead of disabling rules so that future projects based on this starter inherit the best practices.

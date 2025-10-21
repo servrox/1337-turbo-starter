@@ -1,4 +1,8 @@
-import { config } from "@repo/eslint-config/react-internal";
+import { reactLibraryConfig } from "@repo/eslint-config/react-internal";
 
-/** @type {import("eslint").Linter.Config} */
+/** @type {import("eslint").Linter.Config[]} */
+const config = [
+  ...reactLibraryConfig
+];
+
 export default config;

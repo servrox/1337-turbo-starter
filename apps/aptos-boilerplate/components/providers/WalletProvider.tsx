@@ -11,7 +11,8 @@ export function WalletProvider({ children }: PropsWithChildren) {
       autoConnect={true}
       dappConfig={{ network: NETWORK, aptosApiKeys: { [NETWORK]: APTOS_API_KEY } }}
       onError={(error) => {
-        toast.error(error || "Unknown wallet error");
+        const message = error instanceof Error ? error.message : String(error ?? "Unknown wallet error");
+        toast.error(message);
       }}>
       {children}
     </AptosWalletAdapterProvider>

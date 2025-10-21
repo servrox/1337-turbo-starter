@@ -30,11 +30,11 @@ The tool utilizes [aptos-cli npm package](https://github.com/aptos-labs/aptos-cl
 
 Some commands are built-in the template and can be ran as a npm script, for example:
 
-- `npm run move:publish` - a command to publish the Move contract
-- `npm run move:test` - a command to run Move unit tests
-- `npm run move:compile` - a command to compile the Move contract
-- `npm run move:upgrade` - a command to upgrade the Move contract
-- `npm run dev` - a command to run the frontend locally
-- `npm run deploy` - a command to deploy the dapp to Vercel
+- `bun run move:publish` - publish the Move contract
+- `bun run move:test` - run Move unit tests
+- `bun run move:compile` - compile the Move contract
+- `bun run move:upgrade` - upgrade the Move contract
+- `bun run dev:aptos-boilerplate` - run the frontend locally
+- `bun run build:aptos-boilerplate` - build the app for production
 
 For all other available CLI commands, can run `npx aptos` and see a list of all available commands.

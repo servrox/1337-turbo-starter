@@ -24,24 +24,34 @@ import {
   DropdownMenuTrigger,
 } from "@repo/ui/components/dropdown-menu";
 import { ArrowLeft, ArrowRight, ChevronDown, Copy, LogOut, User } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
 
 export function WalletSelector() {
-  const { account, connected, disconnect, wallet } = useWallet();
+  const walletContext = useWallet();
+  const { account, wallet } = walletContext;
+  const connected = walletContext.connected;
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const closeDialog = useCallback(() => setIsDialogOpen(false), []);
+  const closeDialog = () => setIsDialogOpen(false);
 
-  const copyAddress = useCallback(async () => {
-    if (!account?.address.toStringLong()) return;
+  const handleCopyAddress = async () => {
+    const address = account?.address.toStringLong();
+    if (!address) {
+      toast.error("No wallet address available");
+      return;
+    }
     try {
-      await navigator.clipboard.writeText(account.address.toStringLong());
+      await navigator.clipboard.writeText(address);
       toast.success("Copied wallet address to clipboard.");
     } catch {
       toast.error("Failed to copy wallet address.");
     }
-  }, [account?.address]);
+  };
+
+  const handleDisconnect = () => {
+    walletContext.disconnect?.();
+  };
 
   return connected ? (
     <DropdownMenu>
@@ -49,7 +59,11 @@ export function WalletSelector() {
         <Button>{account?.ansName || truncateAddress(account?.address.toStringLong()) || "Unknown"}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onSelect={copyAddress} className="gap-2">
+        <DropdownMenuItem
+          onSelect={() => {
+            void handleCopyAddress();
+          }}
+          className="gap-2">
           <Copy className="h-4 w-4" /> Copy address
         </DropdownMenuItem>
         {wallet && isAptosConnectWallet(wallet) && (
@@ -59,7 +73,11 @@ export function WalletSelector() {
             </a>
           </DropdownMenuItem>
         )}
-        <DropdownMenuItem onSelect={disconnect} className="gap-2">
+        <DropdownMenuItem
+          onSelect={() => {
+            void handleDisconnect();
+          }}
+          className="gap-2">
           <LogOut className="h-4 w-4" /> Disconnect
         </DropdownMenuItem>
       </DropdownMenuContent>

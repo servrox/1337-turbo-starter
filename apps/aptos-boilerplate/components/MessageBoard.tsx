@@ -7,16 +7,14 @@ import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { Button } from "@repo/ui/components/button";
 import { Input } from "@repo/ui/components/input";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { toast } from "sonner";
 
 export function MessageBoard() {
-  // const { client } = useWalletClient(); // for some reason, this is always undefined
-  const { connected, signAndSubmitTransaction } = useWallet();
+  const wallet = useWallet();
   const queryClient = useQueryClient();
 
-  const [messageContent, setMessageContent] = useState<string>();
-  const [newMessageContent, setNewMessageContent] = useState<string>();
+  const [newMessageContent, setNewMessageContent] = useState<string>("");
 
   const { data } = useQuery({
     queryKey: ["message-content"],
@@ -37,13 +35,20 @@ export function MessageBoard() {
     },
   });
 
+  const messageContent = useMemo(() => data?.content ?? "", [data?.content]);
+
   const onClickButton = async () => {
-    if (!newMessageContent || !connected) {
+    if (!newMessageContent || !wallet.connected) {
+      return;
+    }
+
+    if (!wallet.signAndSubmitTransaction) {
+      toast.error("Wallet not ready");
       return;
     }
 
     try {
-      const committedTransaction = await signAndSubmitTransaction({
+      const committedTransaction = await wallet.signAndSubmitTransaction({
         data: {
           function: `${MESSAGE_BOARD_ABI.address}::${MESSAGE_BOARD_ABI.name}::post_message`,
           functionArguments: [newMessageContent],
@@ -53,7 +58,7 @@ export function MessageBoard() {
       const executedTransaction = await aptosClient().waitForTransaction({
         transactionHash: committedTransaction.hash,
       });
-      queryClient.invalidateQueries({
+      await queryClient.invalidateQueries({
         queryKey: ["message-content"],
       });
       toast.success(`Transaction succeeded, hash: ${executedTransaction.hash}`);
@@ -62,26 +67,21 @@ export function MessageBoard() {
     }
   };
 
-  useEffect(() => {
-    if (data) {
-      setMessageContent(data.content);
-    }
-  }, [data]);
-
-  useEffect(() => {
-    console.log("newMessageContent", newMessageContent);
-    console.log("queryClient", queryClient);
-    console.log("connected", connected);
-  }, [newMessageContent, queryClient, connected]);
-
   return (
     <div className="flex flex-col gap-6">
       <h4 className="text-lg font-medium">Message content: {messageContent}</h4>
       New message{" "}
-      <Input disabled={!connected} placeholder="yoho" onChange={(e) => setNewMessageContent(e.target.value)} />
+      <Input
+        disabled={!wallet.connected}
+        placeholder="Enter a message"
+        onChange={(e) => setNewMessageContent(e.target.value)}
+        value={newMessageContent}
+      />
       <Button
-        disabled={!connected || !newMessageContent || newMessageContent.length === 0 || newMessageContent.length > 100}
-        onClick={onClickButton}>
+        disabled={!wallet.connected || newMessageContent.length === 0 || newMessageContent.length > 100}
+        onClick={() => {
+          void onClickButton();
+        }}>
         Write
       </Button>
     </div>

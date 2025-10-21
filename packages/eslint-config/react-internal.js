@@ -1,39 +1,52 @@
-import js from "@eslint/js";
-import eslintConfigPrettier from "eslint-config-prettier";
-import tseslint from "typescript-eslint";
-import pluginReactHooks from "eslint-plugin-react-hooks";
-import pluginReact from "eslint-plugin-react";
 import globals from "globals";
-import { config as baseConfig } from "./base.js";
+import pluginReact from "eslint-plugin-react";
+import pluginReactHooks from "eslint-plugin-react-hooks";
+import pluginJsxA11y from "eslint-plugin-jsx-a11y";
+import { baseConfig } from "./base.js";
 
-/**
- * A custom ESLint configuration for libraries that use React.
- *
- * @type {import("eslint").Linter.Config} */
-export const config = [
+export const reactLibraryConfig = [
   ...baseConfig,
-  js.configs.recommended,
-  eslintConfigPrettier,
-  ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
+    name: "starter/react-language-options",
     languageOptions: {
       ...pluginReact.configs.flat.recommended.languageOptions,
       globals: {
-        ...globals.serviceworker,
-        ...globals.browser,
-      },
+        ...globals.browser
+      }
     },
+    settings: {
+      ...(pluginReact.configs.flat.recommended.settings ?? {}),
+      react: { version: "detect" }
+    }
   },
   {
+    name: "starter/react-hooks",
     plugins: {
-      "react-hooks": pluginReactHooks,
+      "react-hooks": pluginReactHooks
     },
-    settings: { react: { version: "detect" } },
     rules: {
-      ...pluginReactHooks.configs.recommended.rules,
-      // React scope no longer necessary with new JSX transform.
-      "react/react-in-jsx-scope": "off",
-    },
+      ...pluginReactHooks.configs.recommended.rules
+    }
   },
+  {
+    name: "starter/jsx-a11y",
+    plugins: {
+      "jsx-a11y": pluginJsxA11y
+    },
+    rules: {
+      ...pluginJsxA11y.configs.recommended.rules
+    }
+  },
+  {
+    name: "starter/react-tweaks",
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off"
+    }
+  }
 ];
+
+export const config = reactLibraryConfig;
+
+export default reactLibraryConfig;

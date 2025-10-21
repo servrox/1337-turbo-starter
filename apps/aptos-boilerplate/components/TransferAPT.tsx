@@ -7,17 +7,15 @@ import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { Button } from "@repo/ui/components/button";
 import { Input } from "@repo/ui/components/input";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { toast } from "sonner";
 
 export function TransferAPT() {
-  const { account } = useWallet();
-  // const { client } = useWalletClient(); // for some reason, this is always undefined
-  const { connected, signAndSubmitTransaction } = useWallet();
+  const wallet = useWallet();
+  const { account } = wallet;
 
   const queryClient = useQueryClient();
 
-  const [aptBalance, setAptBalance] = useState<number>(0);
   const [recipient, setRecipient] = useState<string>();
   const [transferAmount, setTransferAmount] = useState<number>();
 
@@ -44,13 +42,20 @@ export function TransferAPT() {
     },
   });
 
+  const aptBalance = useMemo(() => data?.balance ?? 0, [data?.balance]);
+
   const onClickButton = async () => {
-    if (!connected || !recipient || !transferAmount) {
+    if (!wallet.connected || !recipient || !transferAmount) {
+      return;
+    }
+
+    if (!wallet.signAndSubmitTransaction) {
+      toast.error("Wallet not ready");
       return;
     }
 
     try {
-      const committedTransaction = await signAndSubmitTransaction({
+      const committedTransaction = await wallet.signAndSubmitTransaction({
         data: {
           function: `${COIN_ABI.address}::${COIN_ABI.name}::transfer`,
           typeArguments: ["0x1::aptos_coin::AptosCoin"],
@@ -60,7 +65,7 @@ export function TransferAPT() {
       const executedTransaction = await aptosClient().waitForTransaction({
         transactionHash: committedTransaction.hash,
       });
-      queryClient.invalidateQueries({
+      await queryClient.invalidateQueries({
         queryKey: ["apt-balance", account?.address],
       });
       toast.success(`Transaction succeeded, hash: ${executedTransaction.hash}`);
@@ -68,12 +73,6 @@ export function TransferAPT() {
       console.error(error);
     }
   };
-
-  useEffect(() => {
-    if (data) {
-      setAptBalance(data.balance);
-    }
-  }, [data]);
 
   return (
     <div className="flex flex-col gap-6">
@@ -83,7 +82,9 @@ export function TransferAPT() {
       <Input disabled={!account} placeholder="100" onChange={(e) => setTransferAmount(parseFloat(e.target.value))} />
       <Button
         disabled={!account || !recipient || !transferAmount || transferAmount > aptBalance || transferAmount <= 0}
-        onClick={onClickButton}>
+        onClick={() => {
+          void onClickButton();
+        }}>
         Transfer
       </Button>
     </div>
