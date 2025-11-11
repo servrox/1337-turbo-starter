@@ -76,8 +76,8 @@
         "vitest": "^4.0.5",
       },
     },
-    "packages/contract": {
-      "name": "@repo/contract",
+    "packages/aptos-contract": {
+      "name": "@repo/aptos-contract",
       "version": "0.0.0",
       "devDependencies": {
         "@aptos-labs/ts-sdk": "^5.1.1",
@@ -556,7 +556,7 @@
 
     "@radix-ui/rect": ["@radix-ui/rect@1.1.1", "", {}, "sha512-HPwpGIzkl28mWyZqG52jiqDJ12waP11Pa1lGoiyUkIEuMLBP0oeK/C89esbXrxsky5we7dfd8U58nm0SgAWpVw=="],
 
-    "@repo/contract": ["@repo/contract@workspace:packages/contract"],
+    "@repo/aptos-contract": ["@repo/aptos-contract@workspace:packages/aptos-contract"],
 
     "@repo/eslint-config": ["@repo/eslint-config@workspace:packages/eslint-config"],
 

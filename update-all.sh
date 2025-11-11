@@ -21,7 +21,7 @@ bunx npm-check-updates -u
 rm -rf node_modules
 
 
-cd ../../packages/contract/
+cd ../../packages/aptos-contract/
 bunx npm-check-updates -u
 rm -rf node_modules
 

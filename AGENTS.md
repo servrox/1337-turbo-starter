@@ -3,7 +3,7 @@
 ## Project Structure & Module Organization
 - `apps/aptos-boilerplate` is the primary Next.js dApp experience. Keep customer flows, wallet plumbing, and feature work inside its `app/`, `components/`, `hooks/`, and `lib/` trees.
 - `apps/landing-page` owns marketing content. Treat it like any other Next.js app—shared UI or logic belongs in packages, not copied into the app.
-- `packages/ui`, `packages/eslint-config`, and `packages/typescript-config` centralize UI primitives, lint rules, and TS baselines. `packages/contract` hosts Move code plus scripts; keep chain logic there instead of under `apps/`.
+- `packages/ui`, `packages/eslint-config`, and `packages/typescript-config` centralize UI primitives, lint rules, and TS baselines. `packages/aptos-contract` hosts Move code plus scripts; keep chain logic there instead of under `apps/`.
 
 ## Build, Test, and Development Commands
 - Install once with `bun install` (Bun 1.3+). Turbo reads scripts from the monorepo root—run everything through `bun run …`.
@@ -15,7 +15,7 @@
   - `bun run lint`, `bun run lint -- --fix`, and `bun run check-types` must be clean before sending PRs.
   - `bun run test` executes the Vitest pipeline across apps; prefer scoped runs such as `bun run test --filter=aptos-boilerplate` during iteration.
   - Format staged files via `bun run format`.
-- On-chain workflows live in `packages/contract`. From that directory run `bun run move:test`, `bun run move:compile`, or `bun run move:publish` as needed.
+- On-chain workflows live in `packages/aptos-contract`. From that directory run `bun run move:test`, `bun run move:compile`, or `bun run move:publish` as needed.
 
 ## Coding Style & Naming Conventions
 - Prettier + `prettier-plugin-tailwindcss` controls formatting (2-space indentation, trailing commas, sorted class lists). Do not hand-format conflicting changes.

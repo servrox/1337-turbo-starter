@@ -80,7 +80,7 @@ bun install
 NEXT_PUBLIC_APTOS_API_KEY=your_api_key_here
 ```
 
-**For the Move contract (`packages/contract/.env`):**
+**For the Move contract (`packages/aptos-contract/.env`):**
 
 ```env
 NEXT_MODULE_PUBLISHER_ACCOUNT_PRIVATE_KEY=your_private_key_here
@@ -139,10 +139,10 @@ bun run dev
 | `apps/aptos-boilerplate/.env`  | `NEXT_PUBLIC_APP_NETWORK`                   | The network your module is deployed to |
 | `apps/aptos-boilerplate/.env`   | `NEXT_PUBLIC_MODULE_ADDRESS`                  | **Auto-filled** by `move:publish` script                 |
 | `apps/aptos-boilerplate/.env`  | `NEXT_PUBLIC_APTOS_API_KEY`                   | Your Aptos API key from [Aptos Labs](https://build.aptoslabs.com) |
-| `packages/contract/.env`  | `NEXT_PUBLIC_APP_NETWORK`                   | The network you want to deploy your module |
-| `packages/contract/.env`   | `NEXT_MODULE_PUBLISHER_ACCOUNT_ADDRESS`       | Account address used for module publishing                 |
-| `packages/contract/.env`   | `NEXT_PUBLIC_MODULE_ADDRESS`                  | **Auto-filled** by `move:publish` script                 |
-| `packages/contract/.env`   | `NEXT_MODULE_PUBLISHER_ACCOUNT_PRIVATE_KEY`   | Private key used for module publishing                   |
+| `packages/aptos-contract/.env`  | `NEXT_PUBLIC_APP_NETWORK`                   | The network you want to deploy your module |
+| `packages/aptos-contract/.env`   | `NEXT_MODULE_PUBLISHER_ACCOUNT_ADDRESS`       | Account address used for module publishing                 |
+| `packages/aptos-contract/.env`   | `NEXT_PUBLIC_MODULE_ADDRESS`                  | **Auto-filled** by `move:publish` script                 |
+| `packages/aptos-contract/.env`   | `NEXT_MODULE_PUBLISHER_ACCOUNT_PRIVATE_KEY`   | Private key used for module publishing                   |
 
 💡 See the `.env.example` files in each package for more details.
 

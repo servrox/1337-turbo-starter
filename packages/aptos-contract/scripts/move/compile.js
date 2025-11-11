@@ -5,7 +5,7 @@ async function compile() {
   const move = new cli.Move();
 
   await move.compile({
-    packageDirectoryPath: "@repo/contract",
+    packageDirectoryPath: "@repo/aptos-contract",
     namedAddresses: {
       // Compile module with account address
       message_board_addr: process.env.NEXT_MODULE_PUBLISHER_ACCOUNT_ADDRESS,
