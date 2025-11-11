@@ -1,33 +1,39 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- `apps/aptos-boilerplate` hosts the sample Aptos dApp built with Next.js; place onboarding flows, wallet integrations, and contract interactions here.
-- `apps/landing-page` contains the marketing site. Keep feature code inside each app’s `app/` or `components/` directories and share utilities via `packages`.
-- `packages/ui`, `packages/eslint-config`, `packages/typescript-config`, and `packages/contract` provide shared UI primitives, lint rules, TypeScript bases, and Move contracts. Update shared code here before duplicating inside apps.
+- `apps/aptos-boilerplate` is the primary Next.js dApp experience. Keep customer flows, wallet plumbing, and feature work inside its `app/`, `components/`, `hooks/`, and `lib/` trees.
+- `apps/landing-page` owns marketing content. Treat it like any other Next.js app—shared UI or logic belongs in packages, not copied into the app.
+- `packages/ui`, `packages/eslint-config`, and `packages/typescript-config` centralize UI primitives, lint rules, and TS baselines. `packages/contract` hosts Move code plus scripts; keep chain logic there instead of under `apps/`.
 
 ## Build, Test, and Development Commands
-- Run `bun install` once to sync dependencies across the monorepo; Turbo relies on Bun 1.3+.
-- `bun run dev:aptos-boilerplate` or `bun run dev --filter=aptos-boilerplate` starts the main dApp locally. Use `bun run dev:landing-page` for the marketing site.
-- `bun run build` runs `turbo run build` for every workspace; scope builds via `bun run build:aptos-boilerplate` or `bun run build:landing-page` when iterating.
-- `bun run lint`, `bun run lint -- --fix`, and `bun run check-types` must pass before opening a PR. Format staged files with `bun run format`.
-- Move contracts live under `packages/contract`; run `bun run move:test` (or `move:compile`, `move:publish`) from that directory when working on on-chain logic.
+- Install once with `bun install` (Bun 1.3+). Turbo reads scripts from the monorepo root—run everything through `bun run …`.
+- Local dev entry points:
+  - `bun run dev:aptos-boilerplate` / `bun run dev --filter=aptos-boilerplate`
+  - `bun run dev:landing-page`
+- Build & CI:
+  - `bun run build` fan-outs to every workspace; use `bun run build:aptos-boilerplate` or `bun run build:landing-page` for scoped builds.
+  - `bun run lint`, `bun run lint -- --fix`, and `bun run check-types` must be clean before sending PRs.
+  - `bun run test` executes the Vitest pipeline across apps; prefer scoped runs such as `bun run test --filter=aptos-boilerplate` during iteration.
+  - Format staged files via `bun run format`.
+- On-chain workflows live in `packages/contract`. From that directory run `bun run move:test`, `bun run move:compile`, or `bun run move:publish` as needed.
 
 ## Coding Style & Naming Conventions
-- Prettier (with the Tailwind plugin) handles formatting—use two-space indentation, trailing commas, and sorted Tailwind classes. Never manually reformat conflicting changes.
-- ESLint configs in `packages/eslint-config` extend TypeScript, React, Next.js, TanStack Query, and a11y defaults. Resolve lint errors rather than disabling rules.
-- Use PascalCase for React components (`MyComponent.tsx`), camelCase for utilities, and kebab-case for route segments under `app/`.
-- Co-locate feature-specific hooks or queries under `hooks/` or `lib/`; surface shared types via `packages/typescript-config` when needed.
+- Prettier + `prettier-plugin-tailwindcss` controls formatting (2-space indentation, trailing commas, sorted class lists). Do not hand-format conflicting changes.
+- ESLint derives from `@repo/eslint-config`. Fix violations instead of disabling them; include `lint:fix` scripts when bulk-resolving warnings.
+- Use PascalCase for React components, camelCase for utilities, and kebab-case for route segments under `app/`.
+- Co-locate hooks under `hooks/`, data utilities under `lib/`, and prefer package-level exports (`@repo/ui`, shared Move helpers) over duplicating module logic in apps.
 
 ## Testing Guidelines
-- The starter doesn’t ship with automated tests yet. When adding Jest/Playwright or Move integration tests, keep them beside the code (e.g., `*.spec.tsx`, `tests/` folders) and document the commands in the README.
-- Run `bun run lint` and any relevant `move:*` scripts before requesting review; attach coverage notes if you add tests.
+- Vitest is available in every app. Place UI tests under `test/` or alongside components as `*.spec.tsx`, import helpers from `test/test-utils`, and run them with `bun run test` (or the scoped `test:*` scripts).
+- `test/setup-tests.ts` wires up React Testing Library + jest-dom; extend that file when global mocks are required.
+- Move packages should keep `tests/*.move` cases up to date. Run `bun run move:test` in each package before a review and note coverage deltas if you add scenarios.
+- Lint, type-check, and test (including Move suites) before requesting review; list all commands + manual QA steps inside the PR template.
 
 ## Commit & Pull Request Guidelines
-- Follow Conventional Commits (e.g., `feat(wallet): add account selector`) as seen in the history. Keep commits focused and include contract migrations or scripts alongside the change.
-- PRs should describe the change, link issues, list validation steps (`bun run lint`, `bun run check-types`, dApp manual checks), and include screenshots or recordings for UI updates.
-- Surface risks or follow-up todos in the PR body so reviewers know what to verify.
+- Follow Conventional Commits (e.g., `feat(wallet): add account selector`). Keep commits focused and include related scripts/migrations in the same change.
+- PR descriptions must link issues, outline validation (`bun run lint`, `bun run check-types`, `bun run test`, `bun run move:test`), and attach screenshots or recordings for UI output.
+- Document known risks, follow-ups, or toggles in the PR body so reviewers know what to verify.
 
 ## Environment & Configuration Tips
-- Store secrets (Aptos API keys, wallet keys) in `.env.local` files; never commit them. Each app includes `.env.example` with required values.
-- Re-export shared configuration from `packages/contract`, `packages/ui`, and `packages/typescript-config` so apps stay synchronized. If you need to diverge, document the reason in the relevant README.
-
+- Secrets (Aptos keys, Supabase tokens, analytics IDs) belong in `.env.local` files. Each app has an `.env.example` enumerating required values—keep it current when adding new variables.
+- Re-export shared configuration (UI tokens, ESLint, TS configs, Move helpers) through the packages. If an app diverges from the shared setup, capture the reason in that package’s README and reflect it here when needed.

@@ -10,8 +10,8 @@
     "move:upgrade": "bun ./scripts/move/upgrade && bun ./scripts/move/get_abi"
   },
   "devDependencies": {
-    "@aptos-labs/ts-sdk": "^1.38.0",
+    "@aptos-labs/ts-sdk": "^5.1.1",
     "tree-kill": "1.2.2",
-    "dotenv": "16.3.1"
+    "dotenv": "17.2.3"
   }
 }

@@ -11,24 +11,40 @@
     "dev:landing-page": "turbo run dev --filter=landing-page",
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
+    "test": "turbo run test",
+    "test:aptos-boilerplate": "turbo run test --filter=aptos-boilerplate",
+    "test:landing-page": "turbo run test --filter=landing-page",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "@types/minimatch": "^6.0.0",
     "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.6.14",
-    "turbo": "^2.5.8"
+    "prettier-plugin-tailwindcss": "^0.7.1",
+    "turbo": "^2.6.0"
   },
   "engines": {
     "bun": ">=1.2.19"
   },
-  "packageManager": "bun@1.3.0",
+  "packageManager": "bun@1.3.2",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "trustedDependencies": [
     "@parcel/watcher",
-    "protobufjs"
+    "@tailwindcss/oxide",
+    "@vercel/speed-insights",
+    "bigint-buffer",
+    "bufferutil",
+    "core-js-pure",
+    "es5-ext",
+    "esbuild",
+    "keccak",
+    "node-hid",
+    "protobufjs",
+    "secp256k1",
+    "sharp",
+    "usb",
+    "utf-8-validate"
   ]
 }

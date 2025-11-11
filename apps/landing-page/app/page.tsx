@@ -25,7 +25,15 @@ export default function Page() {
             href="https://vercel.com?utm_source=create-turbo&utm_medium=basic&utm_campaign=create-turbo"
             rel="noopener noreferrer"
             target="_blank">
-            By <Image alt="Vercel Logo" className="invert" height={24} priority src="/vercel.svg" width={100} />
+            By{" "}
+            <Image
+              alt="Vercel Logo"
+              className="invert h-auto w-auto"
+              height={24}
+              priority
+              src="/vercel.svg"
+              width={100}
+            />
           </a>
         </div>
       </div>

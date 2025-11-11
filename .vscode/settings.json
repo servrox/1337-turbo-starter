@@ -35,20 +35,34 @@
     "typescriptreact": "html"
   },
   "tailwindCSS.experimental.classRegex": ["clsx\\(([^)]*)\\)", "cn\\(([^)]*)\\)"], // Support Tailwind in utility functions
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
 
   // 🧹 FILE EXCLUSIONS
   "files.exclude": {
     "**/dist": true,
     "**/.next": true,
-    "**/node_modules": true
+    "**/node_modules": true,
+    "**/.turbo/**": true
   },
   "search.exclude": {
     "**/dist": true,
     "**/.next": true,
-    "**/node_modules": true
+    "**/node_modules": true,
+    "**/.turbo/**": true
   }, // Hide from file tree & search
-
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "**/.next/**": true,
+    "**/node_modules/**": true,
+    "**/.turbo/**": true
+  },
   // 🐙 GIT
   "git.ignoreLimitWarning": true, // Ignore file count warning
-  "git.inputValidationSubjectLength": 100 // Allow longer commit titles
+  "git.inputValidationSubjectLength": 100, // Allow longer commit titles
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true
 }

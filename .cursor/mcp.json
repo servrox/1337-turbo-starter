@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "bunx",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    },
+    "next-devtools": {
+      "command": "bunx",
+      "args": ["-y", "next-devtools-mcp@latest"]
+    },
+    "vercel": {
+      "url": "https://mcp.vercel.com"
+    },
+    "vercel-2": {
+      "command": "bunx",
+      "args": ["mcp-remote", "https://mcp.vercel.com"]
+    },
+    "boilerplate-mcp": {
+      "url": "http://localhost:3000/_next/mcp"
+    }
+  }
+}

@@ -9,6 +9,7 @@ export function WalletProvider({ children }: PropsWithChildren) {
   return (
     <AptosWalletAdapterProvider
       autoConnect={true}
+      disableTelemetry
       dappConfig={{ network: NETWORK, aptosApiKeys: { [NETWORK]: APTOS_API_KEY } }}
       onError={(error) => {
         const message = error instanceof Error ? error.message : String(error ?? "Unknown wallet error");
