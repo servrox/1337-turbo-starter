@@ -1,23 +1,23 @@
 {
-  "name": "turbo-bun-tailwind-aptos-starter",
+  "name": "turbo-bun-tailwind-move-starter",
   "private": true,
   "author": "servrox",
   "scripts": {
     "build": "turbo run build",
     "build:aptos-boilerplate": "turbo run build --filter=aptos-boilerplate",
     "build:landing-page": "turbo run build --filter=landing-page",
-    "build:wallet-dashboard": "turbo run build --filter=wallet-dashboard",
+    "build:iota-wallet-dashboard": "turbo run build --filter=iota-wallet-dashboard",
     "dev": "turbo run dev",
     "dev:aptos-boilerplate": "turbo run dev --filter=aptos-boilerplate",
     "dev:landing-page": "turbo run dev --filter=landing-page",
-    "dev:wallet-dashboard": "turbo run dev --filter=wallet-dashboard",
-    "dev:wallet_dashboard": "bun run dev:wallet-dashboard",
+    "dev:iota-wallet-dashboard": "turbo run dev --filter=iota-wallet-dashboard",
+    "dev:iota_wallet_dashboard": "bun run dev:iota-wallet-dashboard",
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
     "test": "turbo run test",
     "test:aptos-boilerplate": "turbo run test --filter=aptos-boilerplate",
     "test:landing-page": "turbo run test --filter=landing-page",
-    "test:wallet-dashboard": "turbo run test --filter=wallet-dashboard",
+    "test:iota-wallet-dashboard": "turbo run test --filter=iota-wallet-dashboard",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {

@@ -8,6 +8,11 @@ bunx npm-check-updates -u
 rm -rf node_modules
 rm -rf .next
 
+cd ../../apps/iota-wallet-dashboard/
+bunx npm-check-updates -u
+rm -rf node_modules
+rm -rf .next
+
 cd ../../packages/ui/
 bunx npm-check-updates -u
 rm -rf node_modules
