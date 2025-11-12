@@ -43,13 +43,13 @@
   "files.exclude": {
     "**/dist": true,
     "**/.next": true,
-    "**/node_modules": true,
+    // "**/node_modules": true,
     "**/.turbo/**": true
   },
   "search.exclude": {
     "**/dist": true,
     "**/.next": true,
-    "**/node_modules": true,
+    // "**/node_modules": true,
     "**/.turbo/**": true
   }, // Hide from file tree & search
   "files.watcherExclude": {
