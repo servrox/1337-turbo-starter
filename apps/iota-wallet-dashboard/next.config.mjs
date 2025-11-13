@@ -9,6 +9,7 @@ const NEXT_PUBLIC_BUILD_ENV = process.env.BUILD_ENV;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    cacheComponents: true,
     async redirects() {
         return [
             {
@@ -19,8 +20,12 @@ const nextConfig = {
         ];
     },
     images: {
-        // Remove this domain when fetching data
-        domains: ['d315pvdvxi2gex.cloudfront.net'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'd315pvdvxi2gex.cloudfront.net',
+            },
+        ],
     },
     env: {
         NEXT_PUBLIC_DASHBOARD_REV,

@@ -1,9 +1,14 @@
+@config '../tailwind.config.ts';
+
+@import 'tailwindcss';
 @import '@iota/apps-ui-kit/styles';
 @import '../components/disclaimer/CookieDisclaimer.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@source './**/*.{js,ts,jsx,tsx,mdx}';
+@source '../components/**/*.{js,ts,jsx,tsx,mdx}';
+@source '../hooks/**/*.{js,ts,jsx,tsx,mdx}';
+@source '../lib/**/*.{js,ts,jsx,tsx,mdx}';
+@source '../providers/**/*.{js,ts,jsx,tsx,mdx}';
 
 html,
 body {
@@ -134,7 +139,7 @@ body {
         @apply text-iota-primary-30 dark:text-iota-primary-80;
         @apply transition-colors;
         &:hover {
-            @apply text-opacity-80;
+            @apply text-iota-primary-30/80 dark:text-iota-primary-80/80;
         }
     }
 }

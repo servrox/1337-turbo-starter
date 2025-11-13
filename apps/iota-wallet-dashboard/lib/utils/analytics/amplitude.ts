@@ -4,7 +4,7 @@
 
 import { PersistableStorage } from '@/lib/iota-core';
 import * as amplitude from '@amplitude/analytics-browser';
-import { LogLevel, TransportType, type UserSession } from '@amplitude/analytics-types';
+import { LogLevel, type UserSession } from '@amplitude/analytics-types';
 
 import { ampli } from './ampli';
 
@@ -26,7 +26,7 @@ export async function initAmplitude() {
     });
 
     window.addEventListener('pagehide', () => {
-        amplitude.setTransport(TransportType.SendBeacon);
+        amplitude.setTransport(amplitude.Types.TransportType.SendBeacon);
         amplitude.flush();
     });
 }

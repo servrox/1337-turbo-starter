@@ -1,29 +1,29 @@
 // Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 
-import { GroupedTimelockObject } from '@iota/core/utils/stake/createTimelockedStakeTransaction';
+import { SUPPLY_INCREASE_VESTING_LABEL } from '@/lib/iota-core/constants/vesting.constants';
 import {
-    TimelockedObject,
-    type ExtendedDelegatedTimelockedStake,
-} from '@iota/core/interfaces/timelock.interfaces';
-import { SUPPLY_INCREASE_VESTING_LABEL } from '@iota/core/constants/vesting.constants';
-import { mapTimelockObjects } from '@iota/core/utils/mapTimelockObjects';
+  TimelockedObject,
+  type ExtendedDelegatedTimelockedStake,
+} from '@/lib/iota-core/interfaces/timelock.interfaces';
+import { mapTimelockObjects } from '@/lib/iota-core/utils/mapTimelockObjects';
+import { GroupedTimelockObject } from '@/lib/iota-core/utils/stake/createTimelockedStakeTransaction';
+import { IotaObjectData } from '@iota/iota-sdk/client';
 import {
-    MIN_STAKING_THRESHOLD,
-    SUPPLY_INCREASE_INVESTOR_VESTING_DURATION,
-    SUPPLY_INCREASE_STAKER_VESTING_DURATION,
-    SUPPLY_INCREASE_STARTING_VESTING_YEAR,
-    SUPPLY_INCREASE_VESTING_PAYOUTS_IN_1_YEAR,
-    SUPPLY_INCREASE_VESTING_PAYOUT_SCHEDULE_MILLISECONDS,
+  MIN_STAKING_THRESHOLD,
+  SUPPLY_INCREASE_INVESTOR_VESTING_DURATION,
+  SUPPLY_INCREASE_STAKER_VESTING_DURATION,
+  SUPPLY_INCREASE_STARTING_VESTING_YEAR,
+  SUPPLY_INCREASE_VESTING_PAYOUTS_IN_1_YEAR,
+  SUPPLY_INCREASE_VESTING_PAYOUT_SCHEDULE_MILLISECONDS,
 } from '../../constants';
 import {
-    SupplyIncreaseUserType,
-    SupplyIncreaseVestingPayout,
-    SupplyIncreaseVestingPortfolio,
-    VestingOverview,
+  SupplyIncreaseUserType,
+  SupplyIncreaseVestingPayout,
+  SupplyIncreaseVestingPortfolio,
+  VestingOverview,
 } from '../../interfaces';
 import { isTimelockedObject, isTimelockedStakedIota } from '../timelock';
-import { IotaObjectData } from '@iota/iota-sdk/client';
 
 export function getLatestOrEarliestSupplyIncreaseVestingPayout(
     objects: (TimelockedObject | ExtendedDelegatedTimelockedStake)[],

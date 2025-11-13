@@ -53,14 +53,14 @@ export default defineConfig({
         },
         // Wallet-dashboard:
         {
-            command: 'pnpm start',
+            command: 'bun run start',
             port: 3000,
             timeout: 120 * 1000,
             reuseExistingServer: !process.env.CI,
         },
         // Apps-backend:
         {
-            command: 'cd ../apps-backend && pnpm run preview',
+            command: 'cd ../apps-backend && bun run preview',
             port: 3003,
             timeout: 120 * 1000,
             reuseExistingServer: !process.env.CI,

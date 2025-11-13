@@ -2,8 +2,7 @@
 // Modifications Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 
-import { CookieStorage } from '@amplitude/analytics-client-common';
-import { MemoryStorage } from '@amplitude/analytics-core';
+import { CookieStorage, MemoryStorage } from '@amplitude/analytics-core';
 import { CookieStorageOptions, type Storage } from '@amplitude/analytics-types';
 
 export const AMP_COOKIE_PREFIX = 'AMP_';

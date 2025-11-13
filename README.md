@@ -42,8 +42,9 @@ It runs:
 ```txt
 .
 ├── apps/
-│   ├── aptos-boilerplate/  # Aptos DApp implementation
-│   └── landing-page/       # Landing page application
+│   ├── aptos-boilerplate/     # Aptos DApp implementation
+│   ├── landing-page/          # Landing page application
+│   └── iota-wallet-dashboard/ # Next.js wallet dashboard (Cache Components)
 ├── packages/
 │   ├── contract/          # Move smart contracts
 │   ├── ui/                # Shared UI components
@@ -99,6 +100,12 @@ bun run move:publish
 bun run dev
 ```
 
+Need a single app?
+
+- Wallet dashboard: `bun run dev:iota-wallet-dashboard` (alias: `bun run dev:wallet_dashboard`)
+- Aptos dApp: `bun run dev:aptos-boilerplate`
+- Landing page: `bun run dev:landing-page`
+
 ---
 
 ## 📜 Scripts
@@ -108,12 +115,17 @@ bun run dev
 | `bun run build`                | Build all apps and packages                    |
 | `bun run build:aptos-boilerplate` | Build only the Aptos boilerplate app       |
 | `bun run build:landing-page`   | Build only the landing page                    |
+| `bun run build:iota-wallet-dashboard` | Build only the wallet dashboard         |
 | `bun run dev`                  | Start all development servers                  |
 | `bun run dev:aptos-boilerplate`| Start Aptos boilerplate development server    |
 | `bun run dev:landing-page`     | Start landing page development server         |
+| `bun run dev:iota-wallet-dashboard` | Start wallet dashboard dev server       |
+| `bun run dev:wallet_dashboard` | Legacy alias for wallet dashboard dev server   |
 | `bun run lint`                 | Run ESLint (flat config) across the repo      |
+| `bun run lint:iota-wallet-dashboard` | Lint wallet dashboard only            |
 | `bun run lint -- --fix`        | Auto-fix lint issues where possible           |
 | `bun run check-types`          | Type-check all packages and apps              |
+| `bun run check-types:iota-wallet-dashboard` | Type-check wallet dashboard only |
 | `bun run format`               | Format codebase with Prettier                 |
 
 ---

@@ -11,9 +11,12 @@
     "dev:aptos-boilerplate": "turbo run dev --filter=aptos-boilerplate",
     "dev:landing-page": "turbo run dev --filter=landing-page",
     "dev:iota-wallet-dashboard": "turbo run dev --filter=iota-wallet-dashboard",
-    "dev:iota_wallet_dashboard": "bun run dev:iota-wallet-dashboard",
+    "dev:iota-wallet-dashboard:bun": "bun run dev:iota-wallet-dashboard",
+    "dev:wallet_dashboard": "bun run dev:iota-wallet-dashboard",
     "lint": "turbo run lint",
+    "lint:iota-wallet-dashboard": "turbo run lint --filter=iota-wallet-dashboard",
     "check-types": "turbo run check-types",
+    "check-types:iota-wallet-dashboard": "turbo run check-types --filter=iota-wallet-dashboard",
     "test": "turbo run test",
     "test:aptos-boilerplate": "turbo run test --filter=aptos-boilerplate",
     "test:landing-page": "turbo run test --filter=landing-page",
@@ -50,5 +53,8 @@
     "sharp",
     "usb",
     "utf-8-validate"
-  ]
+  ],
+  "overrides": {
+    "graphql": "16.12.0"
+  }
 }
