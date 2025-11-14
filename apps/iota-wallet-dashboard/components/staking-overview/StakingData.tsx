@@ -6,7 +6,7 @@ import {
   useFormatCoin,
   useTotalDelegatedRewards,
   useTotalDelegatedStake,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import { LabelText, LabelTextSize, Panel, Title } from '@iota/apps-ui-kit';
 import { DelegatedStake } from '@iota/iota-sdk/client';
 interface StakingDataProps {

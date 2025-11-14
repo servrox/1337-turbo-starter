@@ -3,7 +3,7 @@
 
 'use client';
 
-import { NFTMediaRenderer, useGetNFTDisplay } from '@/lib/iota-core';
+import { NFTMediaRenderer, useGetNFTDisplay } from '@repo/iota-core';
 import { FlexDirection } from '@/lib/ui/enums';
 import { VisualAssetCard, VisualAssetType, type VisualAssetCardProps } from '@iota/apps-ui-kit';
 import { IotaObjectData } from '@iota/iota-sdk/client';

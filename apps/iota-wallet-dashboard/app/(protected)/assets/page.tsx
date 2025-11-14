@@ -3,7 +3,7 @@
 
 'use client';
 
-import { AssetCategory, NoData, usePageAssets } from '@/lib/iota-core';
+import { AssetCategory, NoData, usePageAssets } from '@repo/iota-core';
 import { Warning } from '@iota/apps-ui-icons';
 import {
   Chip,

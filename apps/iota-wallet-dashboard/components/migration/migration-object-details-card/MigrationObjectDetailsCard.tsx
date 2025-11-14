@@ -10,7 +10,7 @@ import {
   SECONDS_PER_DAY,
   useCountdownByTimestamp,
   useFormatCoin,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import { ResolvedObjectTypes } from '@/lib/types';
 import { Assets, DataStack, Info, IotaLogoMark } from '@iota/apps-ui-icons';
 import {

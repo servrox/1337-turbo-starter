@@ -14,7 +14,7 @@ import {
   isMigrationTransaction,
   useFormatCoin,
   useTransactionSummary,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import {
   Card,
   CardAction,

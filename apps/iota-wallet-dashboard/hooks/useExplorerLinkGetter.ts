@@ -1,7 +1,7 @@
 // Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 
-import { getExplorerLink } from '@/lib/iota-core';
+import { getExplorerLink } from '@repo/iota-core';
 import { useCurrentAccount, useIotaClientContext } from '@iota/dapp-kit';
 
 export function useExplorerLinkGetter(): (

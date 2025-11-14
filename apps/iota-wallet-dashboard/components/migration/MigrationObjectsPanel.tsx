@@ -9,7 +9,7 @@ import {
   STARDUST_TIMELOCKED_OBJECTS_FILTER_LIST,
 } from '@/lib/constants';
 import { StardustOutputDetailsFilter } from '@/lib/enums';
-import { VirtualList } from '@/lib/iota-core';
+import { VirtualList } from '@repo/iota-core';
 import { filterMigrationObjects } from '@/lib/utils';
 import { Close, Warning } from '@iota/apps-ui-icons';
 import {

@@ -3,7 +3,7 @@
 
 import { useGetStardustMigratableObjects } from '@/hooks';
 import { MIGRATION_ROUTE } from '@/lib/constants/routes.constants';
-import { Banner, Theme, useTheme } from '@/lib/iota-core';
+import { Banner, Theme, useTheme } from '@repo/iota-core';
 import { Button, ButtonSize, ButtonType } from '@iota/apps-ui-kit';
 import { useCurrentAccount } from '@iota/dapp-kit';
 import { useRouter } from 'next/navigation';

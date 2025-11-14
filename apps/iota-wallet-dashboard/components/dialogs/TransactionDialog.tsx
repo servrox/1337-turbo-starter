@@ -8,7 +8,7 @@ import {
   TransactionReceipt,
   useGetTransactionWithSummary,
   ViewTxnOnExplorerButton,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import { Header, LoadingIndicator } from '@iota/apps-ui-kit';
 import { useCurrentAccount } from '@iota/dapp-kit';
 import { ExplorerLink } from '../ExplorerLink';

@@ -8,7 +8,7 @@ import {
   useFormatCoin,
   useGetAllBalances,
   useGetFiatBalance,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import { Button, ButtonSize, ButtonType, LoadingIndicator, Panel } from '@iota/apps-ui-kit';
 import { useCurrentAccount, useIotaClientContext } from '@iota/dapp-kit';
 import { getNetwork } from '@iota/iota-sdk/client';

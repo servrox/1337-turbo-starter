@@ -1,7 +1,7 @@
 // Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 
-import { toast, useLocalStorage } from '@/lib/iota-core';
+import { toast, useLocalStorage } from '@repo/iota-core';
 import { ampli } from '@/lib/utils/analytics';
 import { useIotaClientContext } from '@iota/dapp-kit';
 import { NetworkConfiguration } from '@iota/iota-sdk/client';

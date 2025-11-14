@@ -1,7 +1,7 @@
 // Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 
-import { TimeUnit, useFormatCoin, useGetTimeBeforeEpochNumber, useTimeAgo } from '@/lib/iota-core';
+import { TimeUnit, useFormatCoin, useGetTimeBeforeEpochNumber, useTimeAgo } from '@repo/iota-core';
 import { Divider, KeyValueInfo, Panel } from '@iota/apps-ui-kit';
 import { useIotaClientQuery } from '@iota/dapp-kit';
 

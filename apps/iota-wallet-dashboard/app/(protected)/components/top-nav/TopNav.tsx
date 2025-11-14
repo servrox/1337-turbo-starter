@@ -3,7 +3,7 @@
 
 import { SettingsDialog, useSettingsDialog } from '@/components';
 import { usePersistedNetwork } from '@/hooks';
-import { Feature, ThemeSwitcher, toTitleCase, useFeatureEnabledByNetwork } from '@/lib/iota-core';
+import { Feature, ThemeSwitcher, toTitleCase, useFeatureEnabledByNetwork } from '@repo/iota-core';
 import { Settings } from '@iota/apps-ui-icons';
 import { Badge, BadgeType, Button, ButtonType } from '@iota/apps-ui-kit';
 import { ConnectButton } from '@iota/dapp-kit';

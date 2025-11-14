@@ -4,12 +4,19 @@
 import { SENTRY_ORG_NAME, SENTRY_PROJECT_NAME } from './sentry.common.config.mjs';
 import { withSentryConfig } from '@sentry/nextjs';
 import { execSync } from 'child_process';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 const NEXT_PUBLIC_DASHBOARD_REV = execSync('git rev-parse HEAD').toString().trim().toString();
 const NEXT_PUBLIC_BUILD_ENV = process.env.BUILD_ENV;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const IOTA_CORE_SRC_PATH = path.resolve(__dirname, '../../packages/iota-core/src');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     cacheComponents: true,
+    experimental: {
+        externalDir: true,
+    },
     async redirects() {
         return [
             {
@@ -31,6 +38,7 @@ const nextConfig = {
         NEXT_PUBLIC_DASHBOARD_REV,
         NEXT_PUBLIC_BUILD_ENV,
     },
+    transpilePackages: ['@repo/iota-core'],
     webpack(config) {
         const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
         if (fileLoaderRule) {
@@ -42,6 +50,11 @@ const nextConfig = {
             issuer: /\.[jt]sx?$/,
             use: ['@svgr/webpack'],
         });
+
+        config.resolve.alias = {
+            ...(config.resolve.alias ?? {}),
+            '@repo/iota-core': IOTA_CORE_SRC_PATH,
+        };
 
         return config;
     },

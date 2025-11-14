@@ -16,7 +16,7 @@ import {
   useGetClockTimestamp,
   useGetTimelockedStakedObjects,
   useUnlockTimelockedObjectsTransaction,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import {
   buildSupplyIncreaseVestingSchedule,
   getLatestOrEarliestSupplyIncreaseVestingPayout,

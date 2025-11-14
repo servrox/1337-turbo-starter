@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { useExplorerLinkGetter } from '@/hooks';
-import { getExplorerLink } from '@/lib/iota-core';
+import { getExplorerLink } from '@repo/iota-core';
 import Link from 'next/link';
 
 type GetExplorerLinkArgs = Parameters<typeof getExplorerLink>[0];

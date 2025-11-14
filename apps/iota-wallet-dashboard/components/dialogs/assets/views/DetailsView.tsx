@@ -11,7 +11,7 @@ import {
   useGetDefaultIotaName,
   useNFTBasicData,
   useNftDetails,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import { Button, ButtonType, Header, KeyValueInfo } from '@iota/apps-ui-kit';
 import { useCurrentAccount } from '@iota/dapp-kit';
 import { IotaObjectData } from '@iota/iota-sdk/client';

@@ -5,7 +5,7 @@ import {
   DELEGATED_STAKES_QUERY_REFETCH_INTERVAL,
   DELEGATED_STAKES_QUERY_STALE_TIME,
   useGetDelegatedStake,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import { useCurrentAccount } from '@iota/dapp-kit';
 import { StakingData } from './StakingData';
 import { StartStaking } from './StartStaking';

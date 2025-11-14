@@ -1,7 +1,7 @@
 // Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 'use client';
-import { ImageIcon, ImageIconSize, useFormatCoin, useStakeRewardStatus } from '@/lib/iota-core';
+import { ImageIcon, ImageIconSize, useFormatCoin, useStakeRewardStatus } from '@repo/iota-core';
 import { TimelockedStakedObjectsGrouped } from '@/lib/utils';
 import { Card, CardAction, CardActionType, CardBody, CardImage } from '@iota/apps-ui-kit';
 import { IotaValidatorSummary } from '@iota/iota-sdk/client';

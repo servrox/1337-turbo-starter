@@ -14,7 +14,7 @@ import {
   useCopyToClipboard,
   useFormatCoin,
   useStardustIndexerClientContext,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import { getStardustObjectsTotals } from '@/lib/utils';
 import { Assets, IotaLogoMark, Stake } from '@iota/apps-ui-icons';
 import {

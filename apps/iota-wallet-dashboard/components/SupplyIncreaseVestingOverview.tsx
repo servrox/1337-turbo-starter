@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { useGetSupplyIncreaseVestingObjects } from '@/hooks';
-import { TIMELOCK_IOTA_TYPE, useCountdownByTimestamp, useFormatCoin } from '@/lib/iota-core';
+import { TIMELOCK_IOTA_TYPE, useCountdownByTimestamp, useFormatCoin } from '@repo/iota-core';
 import { Clock } from '@iota/apps-ui-icons';
 import {
   ButtonType,

@@ -1,7 +1,7 @@
 // Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 
-import { formatPercentageDisplay, useGetStakingValidatorDetails } from '@/lib/iota-core';
+import { formatPercentageDisplay, useGetStakingValidatorDetails } from '@repo/iota-core';
 import { KeyValueInfo, Panel, TooltipPosition } from '@iota/apps-ui-kit';
 import { useCurrentAccount } from '@iota/dapp-kit';
 

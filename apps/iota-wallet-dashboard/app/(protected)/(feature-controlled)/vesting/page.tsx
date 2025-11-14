@@ -26,7 +26,7 @@ import {
   useCountdownByTimestamp,
   useFormatCoin,
   useTheme,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import { groupTimelockedStakedObjects, TimelockedStakedObjectsGrouped } from '@/lib/utils';
 import { ampli } from '@/lib/utils/analytics';
 import { Calendar, StarHex, Warning } from '@iota/apps-ui-icons';

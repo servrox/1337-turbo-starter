@@ -8,7 +8,7 @@ import {
   useGetAllBalances,
   useSortedCoinsByCategories,
   VirtualList,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import { RecognizedBadge } from '@iota/apps-ui-icons';
 import {
   ButtonSegment,

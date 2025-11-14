@@ -1,7 +1,7 @@
 // Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 
-import { ExplorerLinkType } from '@/lib/iota-core';
+import { ExplorerLinkType } from '@repo/iota-core';
 import { ArrowTopRight } from '@iota/apps-ui-icons';
 import { Card, CardAction, CardActionType, CardBody, CardType } from '@iota/apps-ui-kit';
 import { IotaObjectData } from '@iota/iota-sdk/client';

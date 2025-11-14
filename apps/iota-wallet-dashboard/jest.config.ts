@@ -7,8 +7,8 @@ const config: Config = {
         '^.+\\.(ts|tsx)$': 'ts-jest',
     },
     moduleNameMapper: {
-        '^@iota/core$': '<rootDir>/lib/iota-core',
-        '^@iota/core/(.*)$': '<rootDir>/lib/iota-core/$1',
+        '^@repo/iota-core$': '<rootDir>/../../packages/iota-core/src',
+        '^@repo/iota-core/(.*)$': '<rootDir>/../../packages/iota-core/src/$1',
     },
     testPathIgnorePatterns: ['tests'],
 };

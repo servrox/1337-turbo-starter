@@ -1,7 +1,7 @@
 // Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 
-import { QR, toast, useCopyToClipboard, useGetDefaultIotaName } from '@/lib/iota-core';
+import { QR, toast, useCopyToClipboard, useGetDefaultIotaName } from '@repo/iota-core';
 import {
   Address,
   Button,

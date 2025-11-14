@@ -3,7 +3,7 @@
 
 import { PROTECTED_ROUTES } from '@/lib/constants/routes.constants';
 import { ProtectedRouteTitle } from '@/lib/enums';
-import { Feature } from '@/lib/iota-core';
+import { Feature } from '@repo/iota-core';
 import { useFeature } from '@growthbook/growthbook-react';
 import { IotaLogoMark } from '@iota/apps-ui-icons';
 import { SidebarItem } from './SidebarItem';

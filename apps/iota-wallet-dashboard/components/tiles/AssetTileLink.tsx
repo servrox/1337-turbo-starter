@@ -3,7 +3,7 @@
 
 'use client';
 
-import { AssetCategory, isKioskOwnerToken, KioskTile, useKioskClient } from '@/lib/iota-core';
+import { AssetCategory, isKioskOwnerToken, KioskTile, useKioskClient } from '@repo/iota-core';
 import { VisibilityOff } from '@iota/apps-ui-icons';
 import { useCurrentAccount } from '@iota/dapp-kit';
 import { IotaObjectData } from '@iota/iota-sdk/client';

@@ -11,9 +11,9 @@ import {
   useKioskClient,
   useNftDetails,
   useTransferAsset,
-} from '@/lib/iota-core';
-import { useNetwork } from '@/lib/iota-core/hooks/useNetwork';
-import { shouldResolveInputAsName } from '@/lib/iota-core/utils/validation/names';
+} from '@repo/iota-core';
+import { useNetwork } from '@repo/iota-core/hooks/useNetwork';
+import { shouldResolveInputAsName } from '@repo/iota-core/utils/validation/names';
 import { ampli } from '@/lib/utils/analytics';
 import { Dialog } from '@iota/apps-ui-kit';
 import { useCurrentAccount, useIotaClient, useSignAndExecuteTransaction } from '@iota/dapp-kit';

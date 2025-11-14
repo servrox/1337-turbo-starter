@@ -5,7 +5,7 @@ import {
   createTimelockedUnstakeTransaction,
   getGasSummary,
   useMaxTransactionSizeBytes,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import { useIotaClient } from '@iota/dapp-kit';
 import { useQuery } from '@tanstack/react-query';
 

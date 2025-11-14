@@ -2,7 +2,7 @@
 // Modifications Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 
-import { useFormatCoin } from '@/lib/iota-core';
+import { useFormatCoin } from '@repo/iota-core';
 
 interface TransactionAmountProps {
     amount: string | number | bigint;

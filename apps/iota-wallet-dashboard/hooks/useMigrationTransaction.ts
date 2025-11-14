@@ -1,7 +1,7 @@
 // Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 
-import { createMigrationTransaction, getGasSummary, useMaxTransactionSizeBytes } from '@/lib/iota-core';
+import { createMigrationTransaction, getGasSummary, useMaxTransactionSizeBytes } from '@repo/iota-core';
 import { useIotaClient } from '@iota/dapp-kit';
 import { IotaObjectData } from '@iota/iota-sdk/client';
 import { useQuery } from '@tanstack/react-query';

@@ -7,7 +7,7 @@ import {
   STARDUST_NFT_OUTPUT_TYPE,
   useGetAllOwnedObjects,
   useGetAllStardustSharedObjects,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import { groupStardustObjectsByMigrationStatus } from '@/lib/utils';
 
 export function useGetStardustMigratableObjects(address: string) {

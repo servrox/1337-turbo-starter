@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { useMigrationTransaction } from '@/hooks/useMigrationTransaction';
-import { GAS_BALANCE_TOO_LOW_ID, GAS_BUDGET_ERROR_MESSAGES, toast } from '@/lib/iota-core';
+import { GAS_BALANCE_TOO_LOW_ID, GAS_BUDGET_ERROR_MESSAGES, toast } from '@repo/iota-core';
 import { isSizeExceededError } from '@/lib/utils';
 import { ampli } from '@/lib/utils/analytics';
 import { Dialog } from '@iota/apps-ui-kit';

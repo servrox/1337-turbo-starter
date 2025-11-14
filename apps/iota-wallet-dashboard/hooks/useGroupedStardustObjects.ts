@@ -1,7 +1,7 @@
 // Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 
-import { TimeUnit } from '@/lib/iota-core';
+import { TimeUnit } from '@repo/iota-core';
 import { ResolvedObjectTypes } from '@/lib/types';
 import {
   groupMigrationObjectsByUnlockCondition,

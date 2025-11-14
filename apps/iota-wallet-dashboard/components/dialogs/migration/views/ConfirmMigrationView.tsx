@@ -12,7 +12,7 @@ import {
   useBalance,
   useFormatCoin,
   VirtualList,
-} from '@/lib/iota-core';
+} from '@repo/iota-core';
 import { filterMigrationObjects, getStardustObjectsTotals } from '@/lib/utils';
 import { Exclamation, Loader, Warning } from '@iota/apps-ui-icons';
 import {

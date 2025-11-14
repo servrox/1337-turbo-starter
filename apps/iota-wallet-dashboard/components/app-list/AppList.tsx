@@ -1,7 +1,7 @@
 // Copyright (c) 2024 IOTA Stiftung
 // SPDX-License-Identifier: Apache-2.0
 
-import { useAppsBackend } from '@/lib/iota-core';
+import { useAppsBackend } from '@repo/iota-core';
 import { getDefaultNetwork } from '@iota/iota-sdk/client';
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';

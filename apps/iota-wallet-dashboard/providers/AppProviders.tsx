@@ -22,7 +22,7 @@ import {
   ThemeProvider,
   Toaster,
   useLocalStorage,
-} from "@iota/core";
+} from "@repo/iota-core";
 
 growthbook.init();
 
