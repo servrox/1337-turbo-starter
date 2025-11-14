@@ -5,6 +5,7 @@
   <img src="https://img.shields.io/npm/v/turbo?color=000000&style=for-the-badge&label=Turbo&logo=vercel" alt="Turbo" />
   <img src="https://img.shields.io/npm/v/next?color=000000&style=for-the-badge&label=Next.js&logo=next.js" alt="Next.js" />
   <img src="https://img.shields.io/npm/v/tailwindcss?color=000000&style=for-the-badge&label=Tailwind&logo=tailwindcss" alt="Tailwind" />
+  <img src="https://img.shields.io/badge/IOTA-000000?style=for-the-badge&logo=iota" alt="IOTA" />
   <br />
   <img src="https://img.shields.io/badge/Aptos-000000?style=for-the-badge&logo=aptos" alt="Aptos" />
   <img src="https://img.shields.io/badge/Move-000000?style=for-the-badge&logo=move" alt="Move" />
@@ -14,13 +15,14 @@
 
 ## 🚀 Overview
 
-**1337 Turbo Starter** is a modern full-stack Web3 monorepo powered by [Turborepo](https://turbo.build/), integrating the official [Aptos DApp boilerplate](https://learn.aptoslabs.com/en/dapp-templates/boilerplate-template).
+**1337 Turbo Starter** is a modern full-stack Web3 monorepo powered by [Turborepo](https://turbo.build/), integrating the official [Aptos DApp boilerplate](https://learn.aptoslabs.com/en/dapp-templates/boilerplate-template) plus an IOTA wallet experience derived from [iotaledger/iota/apps/wallet-dashboard](https://github.com/iotaledger/iota/tree/develop/apps/wallet-dashboard).
 
 It runs:
 
-- ⚡️ Bun for ultra-fast performance  
-- 🎨 Tailwind CSS + shadcn/ui for polished UIs  
-- 🔗 Aptos & Move for next level Web3  
+- ⚡️ Bun **1.3.2** for ultra-fast scripts and package management  
+- 🌀 Next.js **16.0.3** + React **19.2.0** for production-ready apps  
+- 🎨 Tailwind CSS **4.1** + shadcn/ui for polished UIs  
+- 🔗 Aptos, Move, and the IOTA wallet dashboard stack  
 - 🧱 Shared configs & UI across apps  
 - 🦪 Developer-first tooling and monorepo structure  
 
@@ -28,12 +30,12 @@ It runs:
 
 ## 🧰 Tech Stack
 
-- **Bun** – Ultra-fast JS runtime & package manager  
-- **Turborepo** – High-performance monorepo build system  
-- **Next.js** – React framework for production apps  
-- **Tailwind CSS** – Utility-first CSS framework  
-- **Aptos** – Layer 1 blockchain platform  
-- **Move** – Safe, resource-oriented smart contract language  
+- **Bun 1.3.2** – Ultra-fast JS runtime & package manager  
+- **Turborepo 2.6.1** – High-performance monorepo build system  
+- **Next.js 16.0.3 / React 19.2.0** – Cache Components-ready app router stack  
+- **Tailwind CSS 4.1 + shadcn/ui** – Utility-first styling plus component primitives  
+- **Aptos + Move** – Layer 1 blockchain & smart contract language  
+- **IOTA Wallet Dashboard** – Ported dashboard experience with custom `@repo/iota-core`  
 
 ---
 
@@ -46,14 +48,30 @@ It runs:
 │   ├── landing-page/          # Landing page application
 │   └── iota-wallet-dashboard/ # Next.js wallet dashboard (Cache Components)
 ├── packages/
-│   ├── contract/          # Move smart contracts
-│   ├── ui/                # Shared UI components
-│   ├── typescript-config/ # Shared TypeScript settings
-│   └── eslint-config/     # Shared ESLint rules
-└── .vscode/               # VS Code configuration
+│   ├── aptos-contract/        # Move smart contracts & scripts
+│   ├── eslint-config/         # Shared ESLint rules
+│   ├── iota-core/             # Custom IOTA core exports (see below)
+│   ├── typescript-config/     # Shared TypeScript settings
+│   └── ui/                    # Shared UI components
+└── .vscode/                   # VS Code configuration
 ```
 
 📦 **Shared packages** ensure consistent styling, types, and components across all applications.
+
+> **About `packages/iota-core`:** The published `@iota/core` package does not expose several components, hooks, and utilities used by the wallet dashboard (which is based on [iotaledger/iota/apps/wallet-dashboard](https://github.com/iotaledger/iota/tree/develop/apps/wallet-dashboard)). To bridge that gap, `packages/iota-core` is copied from [iotaledger/iota/apps/core](https://github.com/iotaledger/iota/tree/develop/apps/core) and kept in-repo until the upstream package exports everything we need.
+
+### Apps & Packages at a Glance
+
+| Path | Type | Purpose | Key Versions |
+|------|------|---------|--------------|
+| `apps/aptos-boilerplate` | App | Official Aptos DApp boilerplate | Next.js 16.0.3, React 19.2.0 |
+| `apps/landing-page` | App | Marketing/marketing site | Next.js 16.0.3, React 19.2.0 |
+| `apps/iota-wallet-dashboard` | App | Wallet dashboard w/ Cache Components | Next.js 16.0.3, React 19.2.0 |
+| `packages/aptos-contract` | Package | Move contracts + scripts | Move CLI (bun scripts) |
+| `packages/iota-core` | Package | Local copy of IOTA core exports | React 18.3 (per upstream) |
+| `packages/ui` | Package | Shared UI primitives/component wrappers | Tailwind 4.1 |
+| `packages/eslint-config` | Package | Flat ESLint shareable config | ESLint 9 |
+| `packages/typescript-config` | Package | Base `tsconfig` presets | TypeScript 5.9 |
 
 ---
 
