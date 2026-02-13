@@ -1,5 +1,25 @@
 # Repository Guidelines
 
+These guidelines apply equally to human contributors and automated agents.
+
+## MCP Tools Usage Requirement
+
+Agents are expected to make use of **MCP tools** to read official documentation, inspect repository files, and validate assumptions whenever available.
+
+Rules:
+- MCP tools SHOULD be used by default when accessing external documentation or complex internal context.
+- If MCP tools are not available, not connected, or cannot access required sources:
+  - The agent MUST explicitly state this limitation.
+  - The agent MUST ask for MCP installation, configuration, or connection instructions.
+- Agents MUST NOT silently proceed by guessing, hallucinating APIs, or assuming behavior.
+
+Proceeding without MCP access is only acceptable after the limitation has been clearly communicated and acknowledged.
+
+Silently bypassing MCP tools or documentation checks is considered a violation of these guidelines.
+
+When making non-trivial changes, agents SHOULD briefly state which architecture, testing, and official documentation sources were consulted before implementation.
+
+
 ## Project Structure & Module Organization
 - `apps/aptos-boilerplate` is the primary Next.js dApp experience. Keep customer flows, wallet plumbing, and feature work inside its `app/`, `components/`, `hooks/`, and `lib/` trees.
 - `apps/landing-page` owns marketing content. Treat it like any other Next.js app—shared UI or logic belongs in packages, not copied into the app.
