@@ -1,5 +1,6 @@
 {
   "lockfileVersion": 1,
+  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "turbo-bun-tailwind-aptos-starter",
@@ -165,7 +166,7 @@
         "@amplitude/analytics-types": "^0.20.0",
         "@growthbook/growthbook-react": "^1.0.0",
         "@hookform/resolvers": "^3.9.0",
-        "@iota/apps-ui-icons": "^0.6.0",
+        "@iota/apps-ui-icons": "^0.7.0",
         "@iota/apps-ui-kit": "^0.8.0",
         "@iota/dapp-kit": "^0.7.0",
         "@iota/iota-names-sdk": "^0.3.0",
@@ -741,7 +742,7 @@
 
     "@img/sharp-win32-x64": ["@img/sharp-win32-x64@0.34.4", "", { "os": "win32", "cpu": "x64" }, "sha512-xIyj4wpYs8J18sVN3mSQjwrw7fKUqRw+Z5rnHNCy5fYTxigBz81u5mOMPmFumwjcn8+ld1ppptMBCLic1nz6ig=="],
 
-    "@iota/apps-ui-icons": ["@iota/apps-ui-icons@0.6.0", "", { "peerDependencies": { "react": "^18 || ^19" } }, "sha512-ovCXvnqjdaX+C0pcr30eQmo9mZFsmJNURF6i9O9X9EgpAAmeVoF16ay1ULUfq89rT7F6JUOrhUPwtm0kG95Wsw=="],
+    "@iota/apps-ui-icons": ["@iota/apps-ui-icons@0.7.0", "", { "peerDependencies": { "react": "^18 || ^19" } }, "sha512-X5DoNYjDgli9Q8FrkL82O6jGMCBs982Qtj8Bf+cFEIl5J+WFxuk71lMghiIAtjxPKAPMikLK49xAZLulK1AxgA=="],
 
     "@iota/apps-ui-kit": ["@iota/apps-ui-kit@0.8.0", "", { "dependencies": { "@fontsource-variable/roboto-flex": "^5.2.6", "@fontsource/inter": "^5.0.17", "@iota/apps-ui-icons": "0.6.0", "@radix-ui/react-dialog": "^1.1.1", "@radix-ui/react-visually-hidden": "^1.1.0", "classnames": "^2.5.1", "lodash.merge": "^4.6.2", "react-number-format": "^5.2.2" }, "peerDependencies": { "react": "^18 || ^19", "react-dom": "^18 || ^19" } }, "sha512-nkRrC6oHVqsYwny5jlXWJpi2/mEgbnaBFfeH7lveahMsjagiY8idQFM48wpQmFGbs/bwMn32fgPkZLxpKPBpxQ=="],
 
@@ -3347,6 +3348,8 @@
 
     "@humanfs/node/@humanwhocodes/retry": ["@humanwhocodes/retry@0.3.1", "", {}, "sha512-JBxkERygn7Bv/GbN5Rv8Ul6LVknS+5Bp6RgDC/O8gEBU/yeH5Ui5C/OlWrTb6qct7LjjfT6Re2NxB0ln0yYybA=="],
 
+    "@iota/apps-ui-kit/@iota/apps-ui-icons": ["@iota/apps-ui-icons@0.6.0", "", { "peerDependencies": { "react": "^18 || ^19" } }, "sha512-ovCXvnqjdaX+C0pcr30eQmo9mZFsmJNURF6i9O9X9EgpAAmeVoF16ay1ULUfq89rT7F6JUOrhUPwtm0kG95Wsw=="],
+
     "@iota/dapp-kit/@iota/iota-sdk": ["@iota/iota-sdk@1.7.1", "", { "dependencies": { "@graphql-typed-document-node/core": "^3.2.0", "@iota/bcs": "1.3.0", "@noble/curves": "^1.4.2", "@noble/hashes": "^1.4.0", "@scure/bip32": "^1.4.0", "@scure/bip39": "^1.3.0", "@suchipi/femver": "^1.0.0", "bech32": "^2.0.0", "bignumber.js": "^9.1.1", "gql.tada": "^1.8.2", "graphql": "^16.9.0", "tweetnacl": "^1.0.3", "valibot": "^0.36.0" } }, "sha512-ZUGPGldQPI2j9twUkylRuE/JkP9U4T7eOFdid4G8UufCs5VdepTISv76IoTSgn/K27xQhVjULsqx4rhlUWSXeA=="],
 
     "@iota/dapp-kit/@iota/wallet-standard": ["@iota/wallet-standard@0.2.17", "", { "dependencies": { "@iota/iota-sdk": "1.7.1", "@wallet-standard/core": "1.0.3" } }, "sha512-Xu8tg88CqxxustDZXEN2x/mYAeUlEOFZW6deBKINe7C/1SNHLWOwbTKfyouXDrAyOqVxJF7T0tkln6klKVH36Q=="],
@@ -3758,8 +3761,6 @@
     "iota-wallet-dashboard/@amplitude/analytics-types": ["@amplitude/analytics-types@2.11.0", "", {}, "sha512-L1niBXYSWmbyHUE/GNuf6YBljbafaxWI3X5jjEIZDFCjQvdWO3DKalY1VPFUbhgYQgWw7+bC6I/AlUaporyfig=="],
 
     "iota-wallet-dashboard/@hookform/resolvers": ["@hookform/resolvers@5.2.2", "", { "dependencies": { "@standard-schema/utils": "^0.3.0" }, "peerDependencies": { "react-hook-form": "^7.55.0" } }, "sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA=="],
-
-    "iota-wallet-dashboard/@iota/apps-ui-icons": ["@iota/apps-ui-icons@0.7.0", "", { "peerDependencies": { "react": "^18 || ^19" } }, "sha512-X5DoNYjDgli9Q8FrkL82O6jGMCBs982Qtj8Bf+cFEIl5J+WFxuk71lMghiIAtjxPKAPMikLK49xAZLulK1AxgA=="],
 
     "iota-wallet-dashboard/@iota/apps-ui-kit": ["@iota/apps-ui-kit@0.9.0", "", { "dependencies": { "@fontsource-variable/roboto-flex": "^5.2.6", "@fontsource/inter": "^5.0.17", "@iota/apps-ui-icons": "0.7.0", "@radix-ui/react-dialog": "^1.1.1", "@radix-ui/react-visually-hidden": "^1.1.0", "classnames": "^2.5.1", "lodash.merge": "^4.6.2", "react-number-format": "^5.2.2" }, "peerDependencies": { "react": "^18 || ^19", "react-dom": "^18 || ^19" } }, "sha512-7ITd5mKthqxlRgEIYse2eVE+C+HXHmMo5TU6fKZdYpE7NWvoU6LYkLS488HBhe+eQiknQlHhe5WNbN9UgOE9Lw=="],
 
