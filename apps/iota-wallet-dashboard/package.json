@@ -44,7 +44,7 @@
     "clsx": "^2.1.1",
     "formik": "^2.4.9",
     "idb-keyval": "^6.2.2",
-    "next": "16.0.7",
+    "next": "16.2.6",
     "qrcode.react": "^4.2.0",
     "react": "^19.2.1",
     "react-hot-toast": "^2.6.0",
